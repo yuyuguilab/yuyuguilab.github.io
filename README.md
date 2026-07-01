@@ -10,8 +10,7 @@
 ## 目录结构
 
 ```
-├── _config.yml           # Hexo 站点主配置（中文站默认）
-├── _config.zh.yml        # 中文站覆盖：root=/zh/
+├── _config.yml           # Hexo 站点主配置（中文站，根路径 /）
 ├── _config.en.yml        # 英文站覆盖：root=/en/ + source-en/
 ├── themes/academic/      # academic 主题（极简学术风格）
 │   ├── layout/*.njk      # Nunjucks 模板（首页/文章/分类/归档）
@@ -19,7 +18,7 @@
 │   └── languages/        # 中英文案
 ├── source/_posts/        # 中文文章
 ├── source-en/_posts/     # 英文文章（与中文一一对应）
-├── tools/build.js        # 双语构建脚本（生成 zh/en + 合并 + 语言切换注入）
+├── tools/build.js        # 双语构建脚本（生成中文根站 + 英文 /en/ + 语言切换注入）
 └── .github/workflows/    # GitHub Actions 部署
 ```
 
@@ -31,11 +30,10 @@
 
 | 路径 | 内容 |
 |------|------|
-| `/` | 语言自适应跳转（按浏览器语言 + localStorage 记忆） |
-| `/zh/` | 中文站 |
+| `/` | 中文站（默认主站，根路径直接是完整首页，SEO 友好） |
 | `/en/` | 英文站 |
 
-每页顶部导航有语言切换按钮，在 `/zh/...` ↔ `/en/...` 同路径间切换。
+根路径为完整中文首页（无过渡跳转页）；英文浏览器访问时通过 hreflang + 极小内联脚本静默引导至 `/en/`，不阻塞渲染。每页顶部导航有语言切换按钮，在 `/...` ↔ `/en/...` 同路径间切换。
 
 ## 写作
 
@@ -64,7 +62,7 @@ tags: [tag1, tag2]
 Body...
 ```
 
-**注意**：英文文章的 `categories` 也写中文分类名（如 `[商业]`），这样中英文 URL 完全对称（`/zh/business/x/` ↔ `/en/business/x/`）。
+**注意**：英文文章的 `categories` 也写中文分类名（如 `[商业]`），这样中英文 URL 完全对称（`/business/x/` ↔ `/en/business/x/`）。
 
 分类体系（11 类）：商业 · 经济 · 政治 · 国际 · 国家 · 哲学 · 天文 · 地理 · 技术 · 个人 · 杂谈。
 

@@ -1,5 +1,0 @@
-# 中文站覆盖配置：中文站部署在 /zh/ 子路径（与 /en/ 对称）
-# 用法：hexo generate --config _config.yml,_config.zh.yml
-url: https://yuyuguilab.github.io/zh/
-root: /zh/
-source_dir: source

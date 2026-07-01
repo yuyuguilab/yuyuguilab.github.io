@@ -1,17 +1,20 @@
 /**
- * 余玉桂战略研究室 —— 双语站点构建合并脚本
+ * 余玉桂战略研究室 —— 双语站点构建脚本
  *
- * 布局：
- *   /        → 语言自适应跳转页（navigator.languages + localStorage）
- *   /zh/     → 中文站（Hexo 中文站，root=/zh/）
+ * 布局（SEO 友好，无过渡页）：
+ *   /        → 中文站（根路径，默认主站，爬虫直接抓到实质内容）
  *   /en/     → 英文站（Hexo 英文站，root=/en/）
  *
+ * 英文浏览器引导：在根页面注入极小的内联脚本，仅在 navigator.language
+ * 为英文且用户未手动选择过语言时，静默跳转 /en/。首屏内容是完整中文首页，
+ * 不阻塞渲染、不显示"跳转中"过渡。
+ *
  * 流程：
- *   1. 中文站 generate → .public-zh/  （_config.zh.yml 覆盖 root+source_dir+public_dir）
- *   2. 英文站 generate → .public-en/  （_config.en.yml + public_dir 覆盖）
- *   3. 清空 public/，移入 .public-zh→public/zh，.public-en→public/en
- *   4. 写入根 index.html（自适应跳转）
- *   5. 注入语言切换按钮（中文页→/en同路径，英文页→/zh同路径）
+ *   1. 中文站 generate → public/        （_config.yml 默认 root=/）
+ *   2. 英文站 generate → .public-en/    （_config.en.yml 覆盖 root=/en/）
+ *   3. 移入 .public-en → public/en/
+ *   4. 给根 index 注入英文浏览器引导（hreflang + 静默 JS）
+ *   5. 注入语言切换目标（中文页↔/en同路径）
  */
 const { execSync } = require("child_process");
 const fs = require("fs");
@@ -20,7 +23,6 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC = path.join(ROOT, "public");
-const ZH_TMP = path.join(ROOT, ".public-zh");
 const EN_TMP = path.join(ROOT, ".public-en");
 
 function run(cmd) {
@@ -38,8 +40,7 @@ function moveContents(src, dst) {
 
 /**
  * 注入语言切换目标 URL 到 <body>
- * 主题切换/语言按钮的 UI 与交互已由 academic 主题（_partials/nav.njk + main.js）提供，
- * 这里只需把"当前页在另一语言下的对应路径"写入 body 的 data 属性，供主题 JS 读取。
+ * 中文页(/xxx) → /en/xxx；英文页(/en/xxx) → /xxx
  */
 async function injectLangTarget(file) {
   let html;
@@ -48,13 +49,23 @@ async function injectLangTarget(file) {
   } catch {
     return;
   }
-  const isEn = file.includes(path.join("public", "en") + path.sep);
-  const langDir = isEn ? path.join(PUBLIC, "en") : path.join(PUBLIC, "zh");
-  let rel = path.relative(langDir, path.dirname(file)).split(path.sep).join("/");
-  const pagePath = "/" + (rel ? rel + "/" : "");
 
-  // 中文页 → /en + pagePath；英文页 → /zh + pagePath
-  const langTarget = isEn ? "/zh" + pagePath : "/en" + pagePath;
+  // 判断是否在 public/en 下
+  const enDir = path.join(PUBLIC, "en");
+  const isEn = file.startsWith(enDir + path.sep);
+
+  let pagePath;
+  if (isEn) {
+    // 英文页：相对 public/en 的路径，目标为根路径同页
+    let rel = path.relative(enDir, path.dirname(file)).split(path.sep).join("/");
+    pagePath = "/" + (rel ? rel + "/" : "");
+  } else {
+    // 中文页：相对 public 的路径，目标为 /en + 同页
+    let rel = path.relative(PUBLIC, path.dirname(file)).split(path.sep).join("/");
+    pagePath = "/" + (rel ? rel + "/" : "");
+  }
+
+  const langTarget = isEn ? pagePath : "/en" + pagePath;
   const langCode = isEn ? "zh" : "en";
 
   if (html.includes("<body>")) {
@@ -65,6 +76,45 @@ async function injectLangTarget(file) {
     await fsp.writeFile(file, html, "utf8");
   }
 }
+
+/**
+ * 给根路径中文首页注入：
+ * 1. hreflang link 标签（SEO：声明 /en/ 为英文版）
+ * 2. 极小内联脚本：英文浏览器且未选过语言时静默跳 /en/（不阻塞渲染）
+ */
+async function enhanceRootIndex() {
+  const rootIndex = path.join(PUBLIC, "index.html");
+  if (!fs.existsSync(rootIndex)) return;
+  let html = await fsp.readFile(rootIndex, "utf8");
+
+  // 已处理则跳过
+  if (html.includes("data-root-enhanced")) return;
+
+  // hreflang：插到 </head> 前
+  const hreflang = `
+  <link rel="alternate" hreflang="zh" href="https://yuyuguilab.github.io/">
+  <link rel="alternate" hreflang="en" href="https://yuyuguilab.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://yuyuguilab.github.io/">`;
+
+  // 静默引导脚本：放 head 末尾，DOMContentLoaded 前执行，无 UI、不阻塞
+  const guide = `
+  <script data-root-enhanced>
+  (function(){
+    try{
+      // 用户曾手动切换过语言 → 尊重其选择
+      if(localStorage.getItem('lang'))return;
+      var nav=(navigator.languages&&navigator.languages[0])||navigator.language||'';
+      if(/^en/i.test(nav)){location.replace('/en/');}
+    }catch(e){}
+  })();
+  </script>`;
+
+  if (html.includes("</head>")) {
+    html = html.replace("</head>", `${hreflang}${guide}\n</head>`);
+  }
+  await fsp.writeFile(rootIndex, html, "utf8");
+}
+
 async function walkHtml(dir, fn) {
   if (!fs.existsSync(dir)) return;
   for (const e of await fsp.readdir(dir, { withFileTypes: true })) {
@@ -74,82 +124,29 @@ async function walkHtml(dir, fn) {
   }
 }
 
-function writeRootIndex() {
-  const html = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>余玉桂战略研究室 · Yu Yugui Strategy Lab</title>
-<noscript><meta http-equiv="refresh" content="0; url=/zh/"></noscript>
-<style>
-*{margin:0;box-sizing:border-box}
-body{min-height:100vh;display:flex;align-items:center;justify-content:center;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  background:#f5f5f5;color:#333;transition:background .3s,color .3s}
-@media(prefers-color-scheme:dark){body{background:#0d1117;color:#c9d1d9}}
-.box{text-align:center;padding:2rem}
-.glyph{font-size:1.4rem;font-weight:700;margin-bottom:.6rem}
-.glyph a{color:inherit;text-decoration:none;padding:.2rem .4rem}
-.glyph .sep{opacity:.3;margin:0 .4rem}
-.sub{font-size:.88rem;opacity:.55;margin-top:1rem}
-</style>
-</head>
-<body>
-<div class="box">
-  <div class="glyph">
-    <a href="/zh/">余玉桂战略研究室</a><span class="sep">·</span><a href="/en/">Yu Yugui Strategy Lab</a>
-  </div>
-  <div class="sub" id="hint">跳转中…</div>
-</div>
-<script>
-(function(){
-  var hint=document.getElementById('hint');
-  var saved=null;try{saved=localStorage.getItem('lang');}catch(e){}
-  var lang=saved;
-  if(!lang){
-    var nav=(navigator.languages&&navigator.languages[0])||navigator.language||'';
-    lang=/^zh/i.test(nav)?'zh':(/^en/i.test(nav)?'en':'zh');
-  }
-  if(location.pathname.indexOf('/zh/')===0||location.pathname.indexOf('/en/')===0)return;
-  if(lang==='en'){location.replace('/en/');return;}
-  hint.textContent='进入中文站 →';
-  setTimeout(function(){location.replace('/zh/');},300);
-})();
-</script>
-</body>
-</html>`;
-  return fsp.writeFile(path.join(PUBLIC, "index.html"), html, "utf8");
-}
-
 async function main() {
-  const zhPublic = path.join(ROOT, "_config.zh.public.yml");
   const enPublic = path.join(ROOT, "_config.en.public.yml");
-  fs.writeFileSync(zhPublic, "public_dir: .public-zh\n");
   fs.writeFileSync(enPublic, "public_dir: .public-en\n");
 
   try {
     console.log("=== 1. 清理 ===");
     run("npx hexo clean");
-    [ZH_TMP, EN_TMP, PUBLIC].forEach((d) => {
+    [EN_TMP, PUBLIC].forEach((d) => {
       if (fs.existsSync(d)) fs.rmSync(d, { recursive: true, force: true });
     });
 
-    console.log("\n=== 2. 生成中文站 → .public-zh/ ===");
-    run("npx hexo generate --config _config.yml,_config.zh.yml,_config.zh.public.yml");
+    console.log("\n=== 2. 生成中文站 → public/ （根路径，默认主站）===");
+    run("npx hexo generate");
 
     console.log("\n=== 3. 生成英文站 → .public-en/ ===");
     run("npx hexo generate --config _config.yml,_config.en.yml,_config.en.public.yml");
 
-    console.log("\n=== 4. 组装 public/ ===");
-    fs.mkdirSync(PUBLIC, { recursive: true });
-    moveContents(ZH_TMP, path.join(PUBLIC, "zh"));
+    console.log("\n=== 4. 移入英文站 → public/en/ ===");
     moveContents(EN_TMP, path.join(PUBLIC, "en"));
-    fs.rmSync(ZH_TMP, { recursive: true, force: true });
     fs.rmSync(EN_TMP, { recursive: true, force: true });
 
-    console.log("\n=== 5. 语言自适应根 index.html ===");
-    await writeRootIndex();
+    console.log("\n=== 5. 增强根首页（hreflang + 英文浏览器引导）===");
+    await enhanceRootIndex();
 
     console.log("\n=== 6. 注入语言切换目标 ===");
     let n = 0;
@@ -160,16 +157,11 @@ async function main() {
     console.log(`已处理 ${n} 个 HTML 文件`);
 
     console.log("\n✓ 双语站点构建完成 → public/");
-    console.log("  /      → 语言自适应");
-    console.log("  /zh/   → 中文站");
+    console.log("  /      → 中文站（默认主站，SEO 友好）");
     console.log("  /en/   → 英文站");
   } finally {
-    [zhPublic, enPublic].forEach((f) => {
-      try { fs.unlinkSync(f); } catch {}
-    });
-    [ZH_TMP, EN_TMP].forEach((d) => {
-      if (fs.existsSync(d)) fs.rmSync(d, { recursive: true, force: true });
-    });
+    try { fs.unlinkSync(enPublic); } catch {}
+    if (fs.existsSync(EN_TMP)) fs.rmSync(EN_TMP, { recursive: true, force: true });
   }
 }
 

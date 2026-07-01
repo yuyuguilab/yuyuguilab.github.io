@@ -10,8 +10,7 @@ A cross-disciplinary strategy research blog, built with **Hexo + the academic th
 ## Directory Structure
 
 ```
-├── _config.yml           # Main Hexo config (defaults to the Chinese site)
-├── _config.zh.yml        # Chinese site override: root=/zh/
+├── _config.yml           # Main Hexo config (Chinese site, root path /)
 ├── _config.en.yml        # English site override: root=/en/ + source-en/
 ├── themes/academic/      # academic theme (minimal academic style)
 │   ├── layout/*.njk      # Nunjucks templates (home/post/category/archive)
@@ -19,7 +18,7 @@ A cross-disciplinary strategy research blog, built with **Hexo + the academic th
 │   └── languages/        # Chinese/English strings
 ├── source/_posts/        # Chinese posts
 ├── source-en/_posts/     # English posts (one-to-one with Chinese)
-├── tools/build.js        # Bilingual build script (generate zh/en + merge + lang switch)
+├── tools/build.js        # Bilingual build script (Chinese root site + English /en/ + lang switch)
 └── .github/workflows/    # GitHub Actions deployment
 ```
 
@@ -31,11 +30,10 @@ Minimal academic homepage: light radial-gradient background, semi-transparent fr
 
 | Path | Content |
 |------|---------|
-| `/` | Language-adaptive redirect (by browser language + localStorage memory) |
-| `/zh/` | Chinese site |
+| `/` | Chinese site (default, root path serves the full homepage directly — SEO-friendly) |
 | `/en/` | English site |
 
-Each page's top navigation has a language switch that toggles between `/zh/...` and `/en/...` at the same path.
+The root path is the full Chinese homepage (no redirect interstitial). English browsers are silently guided to `/en/` via hreflang + a tiny inline script that does not block rendering. Each page's top navigation has a language switch that toggles between `/...` and `/en/...` at the same path.
 
 ## Writing
 
@@ -64,7 +62,7 @@ tags: [tag1, tag2]
 Body in English...
 ```
 
-**Note**: English posts also use the Chinese category name (e.g. `[商业]`) so that the Chinese and English URLs are fully symmetric (`/zh/business/x/` ↔ `/en/business/x/`).
+**Note**: English posts also use the Chinese category name (e.g. `[商业]`) so that the Chinese and English URLs are fully symmetric (`/business/x/` ↔ `/en/business/x/`).
 
 Category system (11 topics): 商业(Business) · 经济(Economy) · 政治(Politics) · 国际(International) · 国家(Nations) · 哲学(Philosophy) · 天文(Astronomy) · 地理(Geography) · 技术(Technology) · 个人(Personal) · 杂谈(Miscellany).
 
