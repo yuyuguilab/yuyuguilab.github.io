@@ -13,7 +13,7 @@
       <p class="crumbs">
         {{ __('post.in') }}：
         {% for c in cats %}
-          <a href="{{ url_for('categories/' + c.slug + '/') }}">{{ c.name }}</a>{% if not loop.last %} · {% endif %}
+          <a href="{{ url_for('categories/' + c.slug + '/') }}">{{ cat_display(c.slug) }}</a>{% if not loop.last %} · {% endif %}
         {% endfor %}
       </p>
     {% endif %}

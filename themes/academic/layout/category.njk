@@ -1,12 +1,12 @@
 {% extends '_layout.njk' %}
 
-{% block title %}{{ page.category }} · {{ config.title }}{% endblock %}
+{% block title %}{{ cat_display(page.category) }} · {{ config.title }}{% endblock %}
 
 {% block content %}
 {% include '_partials/nav.njk' %}
 
 <section class="card">
-  <h2>{{ page.category }}</h2>
+  <h2>{{ cat_display(page.category) }}</h2>
   {% if page.posts and page.posts.length %}
     <ul class="post-list">
       {% for post in page.posts.toArray() %}
