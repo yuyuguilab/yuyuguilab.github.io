@@ -10,15 +10,15 @@ A cross-disciplinary strategy research blog, built with **Hexo + the academic th
 ## Directory Structure
 
 ```
-├── _config.yml           # Main Hexo config (Chinese site, root path /)
-├── _config.en.yml        # English site override: root=/en/ + source-en/
+├── _config.yml           # Main Hexo config (English site, root path /)
+├── _config.zh.yml        # Chinese site override: root=/zh/ + source
 ├── themes/academic/      # academic theme (minimal academic style)
 │   ├── layout/*.njk      # Nunjucks templates (home/post/category/archive)
 │   ├── source/css        # Styles (light cards + frosted glass + dark mode)
 │   └── languages/        # Chinese/English strings
 ├── source/_posts/        # Chinese posts
 ├── source-en/_posts/     # English posts (one-to-one with Chinese)
-├── tools/build.js        # Bilingual build script (Chinese root site + English /en/ + lang switch)
+├── tools/build.js        # Bilingual build script (English root site + Chinese /zh/ + lang switch)
 └── .github/workflows/    # GitHub Actions deployment
 ```
 
@@ -30,10 +30,10 @@ Minimal academic homepage: light radial-gradient background, semi-transparent fr
 
 | Path | Content |
 |------|---------|
-| `/` | Chinese site (default, root path serves the full homepage directly — SEO-friendly) |
-| `/en/` | English site |
+| `/` | English site (default, root path serves the full homepage directly — SEO-friendly) |
+| `/zh/` | Chinese site |
 
-The root path is the full Chinese homepage (no redirect interstitial). English browsers are silently guided to `/en/` via hreflang + a tiny inline script that does not block rendering. Each page's top navigation has a language switch that toggles between `/...` and `/en/...` at the same path.
+The root path is the full English homepage (no redirect interstitial). Chinese browsers are silently guided to `/zh/` via hreflang + a tiny inline script that does not block rendering. Each page's top navigation has a language switch that toggles between `/...` and `/zh/...` at the same path.
 
 ## Writing
 
@@ -62,7 +62,7 @@ tags: [tag1, tag2]
 Body in English...
 ```
 
-**Note**: English posts also use the Chinese category name (e.g. `[商业]`) so that the Chinese and English URLs are fully symmetric (`/business/x/` ↔ `/en/business/x/`).
+**Note**: English posts also use the Chinese category name (e.g. `[商业]`) so that the Chinese and English URLs are fully symmetric (`/business/x/` ↔ `/zh/business/x/`).
 
 Category system (11 topics): 商业(Business) · 经济(Economy) · 政治(Politics) · 国际(International) · 国家(Nations) · 哲学(Philosophy) · 天文(Astronomy) · 地理(Geography) · 技术(Technology) · 个人(Personal) · 杂谈(Miscellany).
 

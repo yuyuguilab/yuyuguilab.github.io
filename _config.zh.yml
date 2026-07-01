@@ -1,0 +1,20 @@
+# 中文站覆盖配置
+# 用法：hexo generate --config _config.yml,_config.zh.yml
+# 与 _config.yml 深度合并，仅覆盖下方字段
+
+# 中文界面文案
+title: 余玉桂战略研究室
+subtitle: "Yu Yugui Strategy Lab"
+description: 跨学科战略研究笔记 —— 天文、地理、政治、哲学、经济、国际、国家、商业、个人、技术与杂谈。
+keywords: 战略,研究,余玉桂,strategy,research
+author: 余玉桂 · Yu Yugui
+language: zh-CN
+lang: zh
+timezone: Asia/Shanghai
+
+# 中文站部署在 /zh/ 子路径
+url: https://yuyuguilab.github.io/zh/
+root: /zh/
+
+# 中文文章源目录
+source_dir: source

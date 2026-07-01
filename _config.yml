@@ -1,14 +1,14 @@
-# 余玉桂战略研究室 —— Hexo 站点主配置（中文站，root=/）
-# 英文站通过 _config.en.yml 覆盖 source_dir / root / language
+# 余玉桂战略研究室 —— Hexo 站点主配置（英文站默认，root=/）
+# 中文站通过 _config.zh.yml 覆盖到 /zh/
 
 # ---------------------------------------------------------------- Site (Hexo 顶层标准字段)
-title: 余玉桂战略研究室
-subtitle: "Yu Yugui Strategy Lab"
-description: 跨学科战略研究笔记 —— 天文、地理、政治、哲学、经济、国际、国家、商业、个人、技术与杂谈。
-keywords: 战略,研究,余玉桂,strategy,research
-author: 余玉桂 · Yu Yugui
-language: zh-CN
-lang: zh
+title: Yu Yugui Strategy Lab
+subtitle: "余玉桂战略研究室"
+description: Cross-disciplinary strategy notes — astronomy, geography, politics, philosophy, economy, international affairs, nations, business, individuals, technology, and miscellany.
+keywords: strategy,research,Yu Yugui,战略,研究
+author: Yu Yugui
+language: en
+lang: en
 timezone: Asia/Shanghai
 
 # ---------------------------------------------------------------- URL
@@ -21,7 +21,7 @@ pretty_urls:
   trailing_html: false
 
 # ---------------------------------------------------------------- Directory
-source_dir: source
+source_dir: source-en
 public_dir: public
 tag_dir: tags
 category_dir: categories

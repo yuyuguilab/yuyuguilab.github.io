@@ -2,7 +2,7 @@
 Thumbs.db
 node_modules/
 public/
-.public-en/
+.public-zh/
 .deploy_git/
 _config.*.public.yml
 _multiconfig.yml
