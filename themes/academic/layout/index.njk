@@ -5,14 +5,7 @@
 {% block content %}
 
 {# —— 顶部导航 —— #}
-<nav class="top-nav">
-  <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
-  <div class="nav-links">
-    {% for item in theme.nav[config.lang] %}
-      <a href="#{{ item.id }}">{{ item.label }}</a>
-    {% endfor %}
-  </div>
-</nav>
+{% include '_partials/nav.njk' %}
 
 {# —— Hero 区 —— #}
 <section class="card hero">

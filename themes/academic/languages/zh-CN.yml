@@ -23,3 +23,9 @@ nav:
   posts: 文章
   categories: 分类
   about: 关于
+  lang_label: English
+  lang_switch: 切换到 English
+  theme_switch: 切换主题
+  light: 浅色
+  dark: 深色
+  auto: 跟随系统

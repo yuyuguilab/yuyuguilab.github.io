@@ -3,14 +3,7 @@
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
 
 {% block content %}
-<nav class="top-nav">
-  <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
-  <div class="nav-links">
-    {% for item in theme.nav[config.lang] %}
-      <a href="{{ url_for('/') }}#{{ item.id }}">{{ item.label }}</a>
-    {% endfor %}
-  </div>
-</nav>
+{% include '_partials/nav.njk' %}
 
 {# 分类索引页（type: categories） #}
 {% if page.type == 'categories' %}

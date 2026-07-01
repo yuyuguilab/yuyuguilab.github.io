@@ -23,3 +23,9 @@ nav:
   posts: Posts
   categories: Topics
   about: About
+  lang_label: 中文
+  lang_switch: Switch to Chinese
+  theme_switch: Toggle theme
+  light: Light
+  dark: Dark
+  auto: Auto

@@ -7,6 +7,7 @@
   <meta name="description" content="{{ config.description }}">
   <link rel="stylesheet" href="{{ url_for('css/main.css') }}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+  <script>(function(){try{var t=localStorage.getItem('theme')||'auto';if(t!=='auto')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
   <main class="container">
@@ -14,7 +15,7 @@
   </main>
 
   <footer class="footer">
-    © {{ date_year }} {{ config.title }} · Built with GitHub Pages
+    © {{ date_year }} {{ config.title }}
   </footer>
 
   <button id="back-to-top" title="Top" aria-label="Back to top">↑</button>
