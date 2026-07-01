@@ -13,6 +13,11 @@ post:
   back_cat: ← Back to topic
   back_home: ← Back to home
   toc: Contents
+share:
+  title: Share
+  label: Share this article
+  copied: Link copied!
+  native: More…
 category:
   title: Topics
   empty: No posts in this topic yet.

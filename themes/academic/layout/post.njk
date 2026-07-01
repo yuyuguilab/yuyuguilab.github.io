@@ -38,6 +38,8 @@
     </div>
   {% endif %}
 
+  {% include '_partials/share.njk' %}
+
   <p class="post-back">
     {% if cats.length %}
       <a href="{{ url_for('categories/' + cats[0].slug + '/') }}">{{ __('post.back_cat') }}</a>

@@ -1,0 +1,89 @@
+{# 文章分享按钮 —— 覆盖所有主流平台 + 复制链接 + 系统原生分享 #}
+{# 分享 URL/标题在客户端用 location.href/document.title 取，自动适配语言子路径与域名 #}
+<div class="share" id="post-share">
+  <span class="share-label">{{ __('share.label') }}</span>
+  <div class="share-btns">
+    {# 系统原生分享（移动端调起微信/QQ/微博/邮件等所有已安装 App）#}
+    <button class="share-btn share-native" data-share="native" title="{{ __('share.native') }}" aria-label="{{ __('share.native') }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+    </button>
+    {# 复制链接 #}
+    <button class="share-btn" data-share="copy" title="{{ __('share.title') }}" aria-label="{{ __('share.title') }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+    </button>
+    {# X / Twitter #}
+    <a class="share-btn" data-share="x" target="_blank" rel="noopener" title="X" aria-label="X">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+    </a>
+    {# Facebook #}
+    <a class="share-btn" data-share="facebook" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    {# LinkedIn #}
+    <a class="share-btn" data-share="linkedin" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    {# Telegram #}
+    <a class="share-btn" data-share="telegram" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.324-.437.89-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    </a>
+    {# WhatsApp #}
+    <a class="share-btn" data-share="whatsapp" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    {# Reddit #}
+    <a class="share-btn" data-share="reddit" target="_blank" rel="noopener" title="Reddit" aria-label="Reddit">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 01-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 01.042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 014.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 01.14-.197.35.35 0 01.238-.042l2.923.604a1.247 1.247 0 011.152-.765zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 00-.231.094.33.33 0 000 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.071 2.961-.913a.361.361 0 00.029-.463.33.33 0 00-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.197-2.512-.73a.326.326 0 00-.232-.095z"/></svg>
+    </a>
+    {# 微博 #}
+    <a class="share-btn" data-share="weibo" target="_blank" rel="noopener" title="微博" aria-label="微博">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.439v.004h-.002zm-.206-7.182c-1.713.273-2.864 1.805-2.573 3.412.293 1.612 1.94 2.71 3.654 2.443 1.711-.273 2.861-1.805 2.573-3.408-.293-1.617-1.94-2.71-3.654-2.447zm-.852 4.291c-.453.143-.939-.025-1.146-.381-.205-.359-.053-.758.407-.91.464-.146.964.014 1.17.373.208.359.045.772-.431.918zm1.238-1.546c-.18.123-.41.078-.511-.098-.103-.18-.053-.41.13-.535.181-.123.412-.082.514.098.105.179.053.412-.133.535zm.234-3.299c-1.587-.273-3.354.557-4.193 1.938-.854 1.408-.55 3.027.708 3.625 1.294.616 3.082.07 4.027-1.236.93-1.291.689-2.926-.542-4.327zm6.304-3.166c-.252-.083-.427-.139-.298-.502.298-.828.354-1.542.014-2.054-.646-.974-2.412-.921-4.43-.016 0-.002-.634.278-.471-.227.31-.99.255-1.823-.221-2.301-1.083-1.094-3.962.075-6.43 2.617C3.822 9.746 2.936 11.654 3 13.307c.118 3.205 3.817 5.156 7.733 5.156 5.011 0 8.34-2.912 8.34-5.226 0-1.398-1.175-2.191-2.235-2.525l-.012.005zm1.245-3.061c1.235 1.366 1.522 3.156.706 4.806-.063.135-.021.299.108.375l1.116.643c.146.084.336.04.418-.106 1.18-2.091.799-4.626-.984-6.395-1.273-1.264-3.043-1.905-4.789-1.806-.167.011-.295.151-.286.318l.107 1.587c.011.165.151.292.316.281 1.131-.063 2.273.354 3.094 1.271h-.006zm2.326-2.282c-2.018-2.012-4.957-2.781-7.671-2.248-.151.026-.252.171-.225.322l.243 1.428c.028.151.171.252.322.224 1.97-.396 4.062.196 5.513 1.646 1.45 1.451 2.043 3.543 1.646 5.514-.028.151.073.294.224.321l1.428.243c.151.028.296-.073.322-.224.533-2.715-.236-5.654-2.252-7.672l.001-.004zm-1.502 1.516c-1.174-1.174-2.85-1.706-4.474-1.43-.142.024-.237.16-.213.302l.243 1.428c.026.142.16.237.302.214.957-.166 1.947.137 2.639.828.69.69.994 1.681.828 2.639-.024.142.071.275.213.302l1.428.243c.142.026.276-.07.302-.213.276-1.623-.257-3.299-1.43-4.473l-.038-.04z"/></svg>
+    </a>
+    {# Email #}
+    <a class="share-btn" data-share="email" target="_blank" rel="noopener" title="Email" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+    </a>
+  </div>
+  <span class="share-copied" id="share-copied">{{ __('share.copied') }}</span>
+</div>
+<script>
+(function(){
+  var wrap=document.getElementById('post-share');
+  if(!wrap)return;
+  var u=encodeURIComponent(location.href);
+  var t=encodeURIComponent(document.title);
+  var map={
+    x:'https://x.com/intent/tweet?url='+u+'&text='+t,
+    facebook:'https://www.facebook.com/sharer/sharer.php?u='+u,
+    linkedin:'https://www.linkedin.com/sharing/share-offsite/?url='+u,
+    telegram:'https://t.me/share/url?url='+u+'&text='+t,
+    whatsapp:'https://wa.me/?text='+t+'%20'+u,
+    reddit:'https://www.reddit.com/submit?url='+u+'&title='+t,
+    weibo:'https://service.weibo.com/share/share.php?url='+u+'&title='+t,
+    email:'mailto:?subject='+t+'&body='+u
+  };
+  wrap.querySelectorAll('[data-share]').forEach(function(el){
+    var k=el.getAttribute('data-share');
+    if(k==='native'){
+      el.style.display = (navigator.share)?'inline-flex':'none';
+      el.addEventListener('click',function(){
+        navigator.share({title:document.title,url:location.href}).catch(function(){});
+      });
+    }else if(k==='copy'){
+      el.addEventListener('click',function(){
+        var done=document.getElementById('share-copied');
+        navigator.clipboard.writeText(location.href).then(function(){
+          if(done){done.classList.add('show');setTimeout(function(){done.classList.remove('show');},1800);}
+        }).catch(function(){
+          // 兜底：旧浏览器用 execCommand
+          var ta=document.createElement('textarea');ta.value=location.href;document.body.appendChild(ta);ta.select();
+          try{document.execCommand('copy');if(done){done.classList.add('show');setTimeout(function(){done.classList.remove('show');},1800);}}catch(e){}
+          document.body.removeChild(ta);
+        });
+      });
+    }else if(map[k]){
+      el.setAttribute('href',map[k]);
+    }
+  });
+})();
+</script>

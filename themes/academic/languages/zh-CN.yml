@@ -13,6 +13,11 @@ post:
   back_cat: ← 返回分类
   back_home: ← 返回首页
   toc: 目录
+share:
+  title: 分享
+  label: 分享本文
+  copied: 已复制链接！
+  native: 更多…
 category:
   title: 分类
   empty: 本分类暂无文章。
