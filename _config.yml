@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------- Site (Hexo 顶层标准字段)
 title: 余玉桂战略研究室
 subtitle: "Yu Yugui Strategy Lab"
-description: 跨学科战略研究笔记 —— 天文、地理、政治、哲学、经济、国际、国家、公司、个人、技术与杂谈。
+description: 跨学科战略研究笔记 —— 天文、地理、政治、哲学、经济、国际、国家、商业、个人、技术与杂谈。
 keywords: 战略,研究,余玉桂,strategy,research
 author: 余玉桂 · Yu Yugui
 language: zh-CN
@@ -61,7 +61,7 @@ category_generator:
   order_by: -date
 default_category: uncategorized
 category_map:
-  公司: company
+  商业: business
   经济: economy
   政治: politics
   国际: international

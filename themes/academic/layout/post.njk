@@ -3,6 +3,8 @@
 {% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
 
 {% block content %}
+{% set cats = page.categories.toArray() %}
+{% set tags = page.tags.toArray() %}
 <nav class="top-nav">
   <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
   <div class="nav-links">
@@ -14,10 +16,10 @@
 
 <article class="card post">
   <header class="post-head">
-    {% if page.categories and page.categories.length %}
+    {% if cats.length %}
       <p class="crumbs">
         {{ __('post.in') }}：
-        {% for c in page.categories %}
+        {% for c in cats %}
           <a href="{{ url_for('categories/' + c.slug + '/') }}">{{ c.name }}</a>{% if not loop.last %} · {% endif %}
         {% endfor %}
       </p>
@@ -35,17 +37,17 @@
     {{ page.content }}
   </div>
 
-  {% if page.tags and page.tags.length %}
+  {% if tags.length %}
     <div style="margin-top:1.5rem">
-      {% for t in page.tags %}
+      {% for t in tags %}
         <a class="tag" href="{{ url_for('tags/' + t.slug + '/') }}">{{ t.name }}</a>
       {% endfor %}
     </div>
   {% endif %}
 
   <p class="post-back">
-    {% if page.categories and page.categories.length %}
-      <a href="{{ url_for('categories/' + page.categories.first().slug + '/') }}">{{ __('post.back_cat') }}</a>
+    {% if cats.length %}
+      <a href="{{ url_for('categories/' + cats[0].slug + '/') }}">{{ __('post.back_cat') }}</a>
     {% endif %}
   </p>
 </article>

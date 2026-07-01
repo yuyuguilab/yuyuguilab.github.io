@@ -9,7 +9,7 @@ identity:
   zh:
     title: 余玉桂战略研究室
     role: 独立战略研究
-    about: 跨学科战略研究笔记 —— 关注天文、地理、政治、哲学、经济、国际、国家、公司、个人与技术。以跨域视角记录思考，沉淀长期判断。
+    about: 跨学科战略研究笔记 —— 关注天文、地理、政治、哲学、经济、国际、国家、商业、个人与技术。以跨域视角记录思考，沉淀长期判断。
   en:
     title: Yu Yugui Strategy Lab
     role: Independent Strategy Research
@@ -32,8 +32,8 @@ nav:
 # 分类体系登记（含空分类，用于首页分类卡片显示）
 # slug 对应 _config.yml 的 category_map 映射后的 URL
 categories:
-  - slug: company
-    name: { zh: 公司, en: Companies }
+  - slug: business
+    name: { zh: 商业, en: Business }
   - slug: economy
     name: { zh: 经济, en: Economy }
   - slug: politics

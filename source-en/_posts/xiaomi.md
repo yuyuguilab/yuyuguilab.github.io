@@ -1,7 +1,7 @@
 ---
 title: "Xiaomi's Strategic Depth: From Price Slayer to Ecosystem Empire"
 date: 2026-07-01 10:00:00
-categories: [公司]
+categories: [商业]
 tags: [Xiaomi, strategy, business model, ecosystem, Lei Jun]
 description: "Re-understanding Xiaomi: not a phone company, but a growth machine whose base protocol is value-for-money."
 ---

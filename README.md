@@ -45,7 +45,7 @@
 ---
 title: 文章标题
 date: 2026-07-01
-categories: [公司]   # 用中文分类名，由 _config.yml 的 category_map 映射成 URL
+categories: [商业]   # 用中文分类名，由 _config.yml 的 category_map 映射成 URL
 tags: [标签1, 标签2]
 ---
 
@@ -55,16 +55,16 @@ tags: [标签1, 标签2]
 ---
 title: Article Title
 date: 2026-07-01
-categories: [公司]
+categories: [商业]
 tags: [tag1, tag2]
 ---
 
 Body...
 ```
 
-**注意**：英文文章的 `categories` 也写中文分类名（如 `[公司]`），这样中英文 URL 完全对称（`/zh/company/x/` ↔ `/en/company/x/`）。
+**注意**：英文文章的 `categories` 也写中文分类名（如 `[商业]`），这样中英文 URL 完全对称（`/zh/business/x/` ↔ `/en/business/x/`）。
 
-分类体系（11 类）：公司 · 经济 · 政治 · 国际 · 国家 · 哲学 · 天文 · 地理 · 技术 · 个人 · 杂谈。
+分类体系（11 类）：商业 · 经济 · 政治 · 国际 · 国家 · 哲学 · 天文 · 地理 · 技术 · 个人 · 杂谈。
 
 ## 本地预览
 
