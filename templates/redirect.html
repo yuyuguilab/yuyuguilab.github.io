@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ default_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>余玉桂战略研究室 · Yu Yugui Strategy Lab</title>
+  <!-- 无 JS 时回退到默认语言 -->
+  <noscript><meta http-equiv="refresh" content="0; url=/{{ default_lang }}/"></noscript>
+  <style>
+    body{margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;
+         font-family:system-ui,sans-serif;background:#0d1117;color:#c9d1d9}
+    .box{text-align:center}
+    .dots{font-size:2rem;letter-spacing:.3em;animation:p 1s steps(1) infinite}
+    @keyframes p{50%{opacity:.3}}
+    a{color:#58a6ff;display:inline-block;margin:0 .8rem}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="dots">● ● ●</div>
+    <p style="margin:1.2rem 0">
+      <a href="/zh/">中文</a>
+      <a href="/en/">English</a>
+    </p>
+  </div>
+  <!--
+    语言自适应逻辑：
+    1. 用户曾手动切换过语言 → 用 localStorage 记忆，直接跳转。
+    2. 否则按浏览器首选语言判断（zh* → 中文，否则英文）。
+    3. 都不匹配 → 站点默认语言。
+  -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      var lang = saved;
+      if (!lang) {
+        var nav = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+        lang = /^zh\b/i.test(nav) ? 'zh' : (/^en\b/i.test(nav) ? 'en' : '{{ default_lang }}');
+      }
+      // 防止循环：仅当当前不在某语言路径下时才跳转
+      if (!location.pathname.match(/^\/(zh|en)\b/)) {
+        location.replace('/' + lang + '/');
+      }
+    })();
+  </script>
+</body>
+</html>
