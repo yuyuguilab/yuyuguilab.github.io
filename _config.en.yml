@@ -1,0 +1,19 @@
+# 英文站覆盖配置
+# 用法：hexo generate --config _config.yml,_config.en.yml
+# 与 _config.yml 深度合并，仅覆盖下方字段
+
+# 英文界面文案（Hexo 顶层标准字段）
+title: Yu Yugui Strategy Lab
+subtitle: "余玉桂战略研究室"
+description: Cross-disciplinary strategy notes — astronomy, geography, politics, philosophy, economy, international affairs, nations, companies, individuals, technology, and miscellany.
+keywords: strategy,research,Yu Yugui,战略,研究
+author: Yu Yugui
+language: en
+timezone: Asia/Shanghai
+
+# 英文站部署在 /en/ 子路径
+url: https://yuyuguilab.github.io/en/
+root: /en/
+
+# 英文文章源目录
+source_dir: source-en

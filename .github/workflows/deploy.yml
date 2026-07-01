@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
@@ -10,7 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# 同一分支并发部署只保留最新一次
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -21,21 +20,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.11"
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: npm ci
 
-      - name: Build site
-        run: python build.py
+      - name: Build bilingual site
+        run: node tools/build.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: public
 
   deploy:
     needs: build

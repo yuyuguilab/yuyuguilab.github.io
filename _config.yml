@@ -1,0 +1,114 @@
+# 余玉桂战略研究室 —— Hexo 站点主配置（中文站，root=/）
+# 英文站通过 _config.en.yml 覆盖 source_dir / root / language
+
+# ---------------------------------------------------------------- Site (Hexo 顶层标准字段)
+title: 余玉桂战略研究室
+subtitle: "Yu Yugui Strategy Lab"
+description: 跨学科战略研究笔记 —— 天文、地理、政治、哲学、经济、国际、国家、公司、个人、技术与杂谈。
+keywords: 战略,研究,余玉桂,strategy,research
+author: 余玉桂 · Yu Yugui
+language: zh-CN
+timezone: Asia/Shanghai
+
+# ---------------------------------------------------------------- URL
+url: https://yuyuguilab.github.io/
+root: /
+permalink: :category/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+
+# ---------------------------------------------------------------- Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+category_dir: categories
+archive_dir: archives
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ""
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: "  "
+
+# Home page setting
+index_generator:
+  path: ""
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+category_generator:
+  per_page: 10
+  order_by: -date
+default_category: uncategorized
+category_map:
+  公司: company
+  经济: economy
+  政治: politics
+  国际: international
+  国家: nation
+  哲学: philosophy
+  天文: astronomy
+  地理: geography
+  技术: technology
+  个人: personal
+  杂谈: misc
+tag_map:
+
+# Archive
+archive_generator:
+  enabled: true
+  per_page: 20
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: -date
+
+# Metadata elements
+meta_generator: true
+
+# Date / Time format
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: mtime
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Theme —— NexT，主题配置由 _config.next.yml 自动加载（Hexo alternate theme config 约定）
+theme: next
+
+# Search (hexo-generator-searchdb)
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# Include / Exclude
+include:
+exclude:
+ignore:
+
+# Extensions (plugins registered automatically by npm deps)
+# ---------------------------------------------------------------- Deployment
+# 部署由 GitHub Actions + scripts/deploy.js 处理，此处不用 hexo-deployer-git

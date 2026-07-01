@@ -1,4 +1,11 @@
-dist/
-__pycache__/
-*.pyc
 .DS_Store
+Thumbs.db
+node_modules/
+public/
+.public-zh/
+.public-en/
+.deploy_git/
+_config.*.public.yml
+_multiconfig.yml
+db.json
+*.log
