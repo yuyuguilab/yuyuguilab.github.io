@@ -2,7 +2,7 @@
   "name": "yuyuguilab.github.io",
   "version": "1.0.0",
   "private": true,
-  "description": "余玉桂战略研究室 · Yu Yugui Strategy Lab — 跨学科战略研究博客（中英双语，Hexo + NexT）",
+  "description": "余玉桂战略研究室 · Yu Yugui Strategy Lab — 跨学科战略研究博客（中英双语，Hexo + academic 主题）",
   "scripts": {
     "build": "node tools/build.js",
     "clean": "hexo clean",
@@ -14,12 +14,10 @@
   },
   "dependencies": {
     "hexo": "^8.1.0",
-    "hexo-theme-next": "^8.27.0",
     "hexo-generator-index": "^4.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-tag": "^2.0.0",
     "hexo-generator-archive": "^2.0.0",
-    "hexo-generator-searchdb": "^1.4.0",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-stylus": "^3.0.0"

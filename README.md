@@ -1,23 +1,29 @@
 # 余玉桂战略研究室 · Yu Yugui Strategy Lab
 
-跨学科战略研究博客，基于 **Hexo + NexT (Gemini)** 主题，支持中英文双语自适应。
+跨学科战略研究博客，基于 **Hexo + academic 主题**（极简学术风格），支持中英文双语自适应。
 
 - 线上站点：<https://yuyuguilab.github.io/>
-- 构建：Hexo 8 + NexT 8，GitHub Actions 自动部署
+- 构建：Hexo 8 + 自写 academic 主题，GitHub Actions 自动部署
 
 ## 目录结构
 
 ```
 ├── _config.yml           # Hexo 站点主配置（中文站默认）
-├── _config.next.yml      # NexT 主题配置（Gemini 布局 / 深色模式 / 搜索 / TOC）
 ├── _config.zh.yml        # 中文站覆盖：root=/zh/
 ├── _config.en.yml        # 英文站覆盖：root=/en/ + source-en/
+├── themes/academic/      # academic 主题（极简学术风格）
+│   ├── layout/*.njk      # Nunjucks 模板（首页/文章/分类/归档）
+│   ├── source/css        # 样式（浅色卡片 + 毛玻璃 + 深色模式）
+│   └── languages/        # 中英文案
 ├── source/_posts/        # 中文文章
 ├── source-en/_posts/     # 英文文章（与中文一一对应）
-├── tools/build.js        # 双语构建脚本（生成 zh/en + 合并 + 语言自适应 + 切换按钮）
-├── .github/workflows/    # GitHub Actions 部署
-└── package.json
+├── tools/build.js        # 双语构建脚本（生成 zh/en + 合并 + 语言/主题切换注入）
+└── .github/workflows/    # GitHub Actions 部署
 ```
+
+## 风格
+
+极简学术主页：浅色径向渐变背景、半透明毛玻璃卡片、大圆角、胶囊链接、系统字体紧凑字距。支持 light/dark 手动切换 + 跟随系统。
 
 ## 双语站点布局
 

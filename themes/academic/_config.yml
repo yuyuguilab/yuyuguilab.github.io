@@ -1,0 +1,56 @@
+# academic 主题配置（极简学术风格）
+# 还原 minimal-academic-homepage 设计：浅色卡片 + 毛玻璃 + 大圆角 + 胶囊链接
+
+# 头像/Logo（暂用文字 logo，后续可换 assets）
+avatar: ""
+
+# 首页 hero 区身份信息（中英）
+identity:
+  zh:
+    title: 余玉桂战略研究室
+    role: 独立战略研究
+    about: 跨学科战略研究笔记 —— 关注天文、地理、政治、哲学、经济、国际、国家、公司、个人与技术。以跨域视角记录思考，沉淀长期判断。
+  en:
+    title: Yu Yugui Strategy Lab
+    role: Independent Strategy Research
+    about: Cross-disciplinary strategy notes — astronomy, geography, politics, philosophy, economy, international affairs, nations, companies, individuals, and technology. Recording thinking across domains and distilling long-term judgments.
+
+# 社交链接（hero 区胶囊按钮）
+links:
+  - label: { zh: 邮件, en: Email }
+    url: mailto:yuyuguilab@users.noreply.github.com
+    icon: "✉"
+  - label: { zh: GitHub, en: GitHub }
+    url: https://github.com/yuyuguilab
+    icon: "⌥"
+
+# 导航
+nav:
+  zh: [{ label: 文章, id: posts }, { label: 分类, id: categories }, { label: 关于, id: about }]
+  en: [{ label: Posts, id: posts }, { label: Topics, id: categories }, { label: About, id: about }]
+
+# 分类体系登记（含空分类，用于首页分类卡片显示）
+# slug 对应 _config.yml 的 category_map 映射后的 URL
+categories:
+  - slug: company
+    name: { zh: 公司, en: Companies }
+  - slug: economy
+    name: { zh: 经济, en: Economy }
+  - slug: politics
+    name: { zh: 政治, en: Politics }
+  - slug: international
+    name: { zh: 国际, en: International }
+  - slug: nation
+    name: { zh: 国家, en: Nations }
+  - slug: philosophy
+    name: { zh: 哲学, en: Philosophy }
+  - slug: astronomy
+    name: { zh: 天文, en: Astronomy }
+  - slug: geography
+    name: { zh: 地理, en: Geography }
+  - slug: technology
+    name: { zh: 技术, en: Technology }
+  - slug: personal
+    name: { zh: 个人, en: Personal }
+  - slug: misc
+    name: { zh: 杂谈, en: Miscellany }

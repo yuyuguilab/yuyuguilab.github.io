@@ -83,21 +83,9 @@ async function injectSwitch(file) {
 #fb-theme-menu button:hover{background:var(--fb-hover,#eaeef2)}
 #fb-theme-menu button.active{color:#0969da;font-weight:600;background:var(--fb-hover,#eaeef2)}
 #fb-theme-menu button svg{width:14px;height:14px}
-/* 深色主题下按钮自身配色 */
+/* 深色主题下按钮自身配色（主题正文色由 academic 主题 main.css 管理） */
 html[data-theme="dark"]{--fb-bg:#161b22;--fb-fg:#58a6ff;--fb-fg2:#c9d1d9;--fb-border:#30363d;--fb-hover:#21262d}
 @media(prefers-color-scheme:dark){html:not([data-theme="light"]){--fb-bg:#161b22;--fb-fg:#58a6ff;--fb-fg2:#c9d1d9;--fb-border:#30363d;--fb-hover:#21262d}}
-/* —— 手动主题切换：覆盖 NexT CSS 变量 —— */
-html[data-theme="light"]{--body-bg-color:#eee;--content-bg-color:#fff;--text-color:#555;
-  --brand-color:#222;--brand-hover-color:#222;--blockquote-color:#999;--btn-default-bg:#fff;
-  --btn-default-color:#555;--btn-default-border-color:#ddd;--card-bg-color:#fff;
-  --menu-bg-color:#fff;--sidebar-bg-color:#222;--link-color:#555;--link-hover-color:#222;
-  --highlight-background:#f3f3f3;--highlight-foreground:#444;--highlight-gutter-background:#ddd;--highlight-gutter-foreground:#888}
-html[data-theme="dark"]{--body-bg-color:#1d1f21;--content-bg-color:#2a2d31;--text-color:#c9d1d9;
-  --brand-color:#f0f6fc;--brand-hover-color:#f0f6fc;--blockquote-color:#8b949e;--btn-default-bg:#21262d;
-  --btn-default-color:#c9d1d9;--btn-default-border-color:#30363d;--card-bg-color:#161b22;
-  --menu-bg-color:#161b22;--sidebar-bg-color:#0d1117;--link-color:#c9d1d9;--link-hover-color:#f0f6fc;
-  --highlight-background:#161b22;--highlight-foreground:#c9d1d9;--highlight-gutter-background:#0d1117;--highlight-gutter-foreground:#6e7681}
-/* 防闪烁：在 CSS 加载前根据 localStorage 设置初始主题 */
 </style>
 <script>
 (function(){

@@ -1,0 +1,74 @@
+{% extends '_layout.njk' %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
+
+{% block content %}
+<nav class="top-nav">
+  <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
+  <div class="nav-links">
+    {% for item in theme.nav[config.lang] %}
+      <a href="{{ url_for('/') }}#{{ item.id }}">{{ item.label }}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+{# 分类索引页（type: categories） #}
+{% if page.type == 'categories' %}
+<section class="card">
+  <h2>{{ __('category.title') }}</h2>
+  <div class="cat-grid">
+    {% for cat in theme.categories %}
+      <a class="cat-card" href="{{ url_for('categories/' + cat.slug + '/') }}">
+        <span class="cat-card-name">{{ cat.name[config.lang] }}</span>
+        <span class="cat-card-count">{{ cat_count(cat.slug) }} {{ __('home.articles') }}</span>
+      </a>
+    {% endfor %}
+  </div>
+  <p class="post-back"><a href="{{ url_for('/') }}">{{ __('post.back_home') }}</a></p>
+</section>
+
+{# 标签索引页（type: tags） #}
+{% elif page.type == 'tags' %}
+<section class="card">
+  <h2>Tags</h2>
+  {% if site.tags and site.tags.length %}
+    <div style="margin-top:.5rem">
+      {% for t in site.tags.toArray() %}
+        <a class="tag" href="{{ url_for('tags/' + t.slug + '/') }}">{{ t.name }} <span style="opacity:.6">{{ t.posts.length }}</span></a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="color:var(--muted)">No tags.</p>
+  {% endif %}
+  <p class="post-back"><a href="{{ url_for('/') }}">{{ __('post.back_home') }}</a></p>
+</section>
+
+{# 标签详情页（page.tag 存在） #}
+{% elif page.tag %}
+<section class="card">
+  <h2>#{{ page.tag }}</h2>
+  {% if page.posts and page.posts.length %}
+    <ul class="post-list">
+      {% for post in page.posts.toArray() %}
+        <li>
+          <a href="{{ url_for(post.path) }}">{{ post.title }}</a>
+          <span class="post-meta">{{ date(post.date, 'YYYY-MM-DD') }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p style="color:var(--muted)">No posts.</p>
+  {% endif %}
+  <p class="post-back"><a href="{{ url_for('tags/') }}">← Tags</a></p>
+</section>
+
+{# 普通页面 #}
+{% else %}
+<section class="card post">
+  <header class="post-head">
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="post-body">{{ page.content }}</div>
+</section>
+{% endif %}
+{% endblock %}

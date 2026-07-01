@@ -1,0 +1,52 @@
+{% extends '_layout.njk' %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock %}
+
+{% block content %}
+<nav class="top-nav">
+  <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
+  <div class="nav-links">
+    {% for item in theme.nav[config.lang] %}
+      <a href="{{ url_for('/') }}#{{ item.id }}">{{ item.label }}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+<article class="card post">
+  <header class="post-head">
+    {% if page.categories and page.categories.length %}
+      <p class="crumbs">
+        {{ __('post.in') }}：
+        {% for c in page.categories %}
+          <a href="{{ url_for('categories/' + c.slug + '/') }}">{{ c.name }}</a>{% if not loop.last %} · {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta" style="margin-left:0;display:block;margin-top:6px">
+      <time datetime="{{ date(page.date, 'YYYY-MM-DD') }}">{{ date(page.date, 'YYYY-MM-DD') }}</time>
+      {% if page.updated and date(page.updated, 'YYYY-MM-DD') != date(page.date, 'YYYY-MM-DD') %}
+        · {{ __('post.updated') }} {{ date(page.updated, 'YYYY-MM-DD') }}
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-body">
+    {{ page.content }}
+  </div>
+
+  {% if page.tags and page.tags.length %}
+    <div style="margin-top:1.5rem">
+      {% for t in page.tags %}
+        <a class="tag" href="{{ url_for('tags/' + t.slug + '/') }}">{{ t.name }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <p class="post-back">
+    {% if page.categories and page.categories.length %}
+      <a href="{{ url_for('categories/' + page.categories.first().slug + '/') }}">{{ __('post.back_cat') }}</a>
+    {% endif %}
+  </p>
+</article>
+{% endblock %}

@@ -1,0 +1,25 @@
+home:
+  posts: Recent Posts
+  topics: Topics
+  articles: posts
+  empty: No posts yet.
+  about_title: About
+  recent: All Posts
+post:
+  published: Published
+  updated: Updated
+  in: Topic
+  back: ← Back
+  back_cat: ← Back to topic
+  back_home: ← Back to home
+  toc: Contents
+category:
+  title: Topics
+  empty: No posts in this topic yet.
+archive:
+  title: All Posts
+  empty: No posts yet.
+nav:
+  posts: Posts
+  categories: Topics
+  about: About

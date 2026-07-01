@@ -1,0 +1,73 @@
+{% extends '_layout.njk' %}
+
+{% block title %}{{ config.title }}{% endblock %}
+
+{% block content %}
+
+{# —— 顶部导航 —— #}
+<nav class="top-nav">
+  <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
+  <div class="nav-links">
+    {% for item in theme.nav[config.lang] %}
+      <a href="#{{ item.id }}">{{ item.label }}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+{# —— Hero 区 —— #}
+<section class="card hero">
+  <div>
+    <h1>{{ theme.identity[config.lang].title }}</h1>
+    <p class="identity">{{ theme.identity[config.lang].role }}</p>
+    <p class="about-line">{{ theme.identity[config.lang].about }}</p>
+    <div class="links">
+      {% for link in theme.links %}
+        <a class="pill-link" href="{{ link.url }}" target="_blank" rel="noopener">
+          {{ link.icon }} {{ link.label[config.lang] }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="hero-mark">YG</div>
+</section>
+
+{# —— 最新文章 —— #}
+<section class="card" id="posts">
+  <h2>{{ __('home.posts') }}</h2>
+  {% if page.posts and page.posts.length %}
+    <ul class="post-list">
+      {% for post in page.posts.toArray().slice(0, 8) %}
+        <li>
+          <a href="{{ url_for(post.path) }}">{{ post.title }}</a>
+          <span class="post-meta">{{ date(post.date, 'YYYY-MM-DD') }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p style="color:var(--muted)">{{ __('home.empty') }}</p>
+  {% endif %}
+</section>
+
+{# —— 分类卡片 —— #}
+<section class="card" id="categories">
+  <h2>{{ __('home.topics') }}</h2>
+  <div class="cat-grid">
+    {% for cat in theme.categories %}
+      <a class="cat-card" href="{{ url_for('categories/' + cat.slug + '/') }}">
+        <span class="cat-card-name">{{ cat.name[config.lang] }}</span>
+        <span class="cat-card-count">{{ cat_count(cat.slug) }} {{ __('home.articles') }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{# —— 关于 —— #}
+<section class="card" id="about">
+  <h2>{{ __('home.about_title') }}</h2>
+  <p class="about-line">{{ theme.identity[config.lang].about }}</p>
+  <p class="about-line" style="color:var(--muted);margin-top:1rem">
+    © {{ date_year }} {{ config.title }}
+  </p>
+</section>
+
+{% endblock %}

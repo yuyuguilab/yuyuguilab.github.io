@@ -1,0 +1,31 @@
+{% extends '_layout.njk' %}
+
+{% block title %}{{ page.category }} · {{ config.title }}{% endblock %}
+
+{% block content %}
+<nav class="top-nav">
+  <a class="nav-name" href="{{ url_for('/') }}">{{ theme.identity[config.lang].title }}</a>
+  <div class="nav-links">
+    {% for item in theme.nav[config.lang] %}
+      <a href="{{ url_for('/') }}#{{ item.id }}">{{ item.label }}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+<section class="card">
+  <h2>{{ page.category }}</h2>
+  {% if page.posts and page.posts.length %}
+    <ul class="post-list">
+      {% for post in page.posts.toArray() %}
+        <li>
+          <a href="{{ url_for(post.path) }}">{{ post.title }}</a>
+          <span class="post-meta">{{ date(post.date, 'YYYY-MM-DD') }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p style="color:var(--muted)">{{ __('category.empty') }}</p>
+  {% endif %}
+  <p class="post-back"><a href="{{ url_for('/') }}">{{ __('post.back_home') }}</a></p>
+</section>
+{% endblock %}

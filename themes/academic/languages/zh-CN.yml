@@ -1,0 +1,25 @@
+home:
+  posts: 最新文章
+  topics: 分类
+  articles: 篇
+  empty: 暂无文章
+  about_title: 关于
+  recent: 全部文章
+post:
+  published: 发布于
+  updated: 更新于
+  in: 分类
+  back: ← 返回
+  back_cat: ← 返回分类
+  back_home: ← 返回首页
+  toc: 目录
+category:
+  title: 分类
+  empty: 本分类暂无文章。
+archive:
+  title: 全部文章
+  empty: 暂无文章。
+nav:
+  posts: 文章
+  categories: 分类
+  about: 关于
