@@ -119,6 +119,83 @@ async function walkHtml(dir, fn) {
   }
 }
 
+/** 同步收集目录下所有 index.html 对应的站点路径（如 /business/xiaomi/） */
+function collectRoutesSync(dir) {
+  const routes = new Set();
+  if (!fs.existsSync(dir)) return routes;
+  (function walk(d) {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const full = path.join(d, e.name);
+      if (e.isDirectory()) walk(full);
+      else if (e.name === "index.html") {
+        let rel = path.relative(dir, d).split(path.sep).join("/");
+        routes.add("/" + (rel ? rel + "/" : ""));
+      }
+    }
+  })(dir);
+  return routes;
+}
+
+/** 生成 sitemap.xml：英文 URL（根）+ 中文 URL（/zh/），每个 URL 配对 hreflang alternate */
+function writeSitemap() {
+  const HOST = "https://yuyuguilab.github.io";
+  const enRoutes = [...collectRoutesSync(PUBLIC)].filter((r) => !r.startsWith("/zh/")).sort();
+  const zhRoutes = [...collectRoutesSync(path.join(PUBLIC, "zh"))].map((r) => "/zh" + r).sort();
+
+  // 取两个站点的交集路径（不含语言前缀），用于配对 alternate
+  // 英文站路径形如 /xxx/，中文站形如 /zh/xxx/
+  const esc = (s) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+
+  const urls = [];
+  // 英文页面
+  for (const r of enRoutes) {
+    const zhCounter = "/zh" + r;
+    const hasZh = zhRoutes.includes(zhCounter);
+    let block = `  <url>\n    <loc>${esc(HOST + r)}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${r === "/" ? "1.0" : "0.8"}</priority>`;
+    if (hasZh) {
+      block += `\n    <xhtml:link rel="alternate" hreflang="en" href="${esc(HOST + r)}"/>`;
+      block += `\n    <xhtml:link rel="alternate" hreflang="zh" href="${esc(HOST + zhCounter)}"/>`;
+      block += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(HOST + r)}"/>`;
+    }
+    block += `\n  </url>`;
+    urls.push(block);
+  }
+  // 中文页面（仅对有英文对应的，避免孤立中文页）
+  for (const r of zhRoutes) {
+    const enCounter = r.replace(/^\/zh/, "");
+    if (enRoutes.includes(enCounter)) {
+      urls.push(`  <url>
+    <loc>${esc(HOST + r)}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${esc(HOST + enCounter)}"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="${esc(HOST + r)}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(HOST + enCounter)}"/>
+  </url>`);
+    }
+  }
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.join("\n")}
+</urlset>`;
+  fs.writeFileSync(path.join(PUBLIC, "sitemap.xml"), xml, "utf8");
+  return { en: enRoutes.length, zh: zhRoutes.length };
+}
+
+/** 生成 robots.txt：允许全站爬取 + 指向 sitemap */
+function writeRobots() {
+  const HOST = "https://yuyuguilab.github.io";
+  const txt = `User-agent: *
+Allow: /
+
+Sitemap: ${HOST}/sitemap.xml
+`;
+  fs.writeFileSync(path.join(PUBLIC, "robots.txt"), txt, "utf8");
+}
+
 async function main() {
   const zhPublic = path.join(ROOT, "_config.zh.public.yml");
   fs.writeFileSync(zhPublic, "public_dir: .public-zh\n");
@@ -150,6 +227,11 @@ async function main() {
       n++;
     });
     console.log(`已处理 ${n} 个 HTML 文件`);
+
+    console.log("\n=== 7. 生成 sitemap.xml + robots.txt ===");
+    const sc = writeSitemap();
+    writeRobots();
+    console.log(`sitemap: 英文 ${sc.en} + 中文 ${sc.zh} 条 URL（含 hreflang 配对）`);
 
     console.log("\n✓ 双语站点构建完成 → public/");
     console.log("  /      → 英文站（默认主站，SEO 友好）");
