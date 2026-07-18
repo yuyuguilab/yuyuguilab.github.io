@@ -6,7 +6,8 @@
   <title>{% block title %}{{ config.title }}{% endblock %}</title>
   <meta name="description" content="{{ config.description }}">
   <link rel="stylesheet" href="{{ url_for('css/main.css') }}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+  <link rel="icon" type="image/jpeg" href="{{ url_for('images/logo.jpg') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('images/logo.jpg') }}">
   <meta name="google-site-verification" content="SZOADQgVtUTX2HeFvqhWxl-mcLWI0BocFt2b-LUZgJg" />
   <script>(function(){try{var t=localStorage.getItem('theme')||'auto';if(t!=='auto')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
