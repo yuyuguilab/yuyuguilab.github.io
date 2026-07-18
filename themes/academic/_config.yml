@@ -18,7 +18,7 @@ identity:
 # 社交链接（hero 区胶囊按钮）
 links:
   - label: { zh: 邮件, en: Email }
-    url: mailto:yuyuguilab@users.noreply.github.com
+    url: mailto:they4897@gmail.com
     icon: "✉"
   - label: { zh: GitHub, en: GitHub }
     url: https://github.com/yuyuguilab
