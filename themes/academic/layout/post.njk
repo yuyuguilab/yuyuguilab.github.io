@@ -23,6 +23,7 @@
       {% if page.updated and date(page.updated, 'YYYY-MM-DD') != date(page.date, 'YYYY-MM-DD') %}
         · {{ __('post.updated') }} {{ date(page.updated, 'YYYY-MM-DD') }}
       {% endif %}
+      · <span id="busuanzi_container_page_pv" style="display:none">{{ __('stats.page_pv') }} <span id="busuanzi_value_page_pv"></span></span>
     </p>
   </header>
 

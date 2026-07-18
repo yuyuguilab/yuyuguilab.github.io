@@ -34,3 +34,7 @@ nav:
   light: 浅色
   dark: 深色
   auto: 跟随系统
+stats:
+  site_pv: 总访问
+  site_uv: 访客
+  page_pv: 阅读

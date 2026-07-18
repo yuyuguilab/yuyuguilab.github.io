@@ -16,9 +16,19 @@
 
   <footer class="footer">
     © {{ date_year }} {{ config.title }}
+    <span class="footer-stats">
+      <span id="busuanzi_container_site_pv" style="display:none">
+        {{ __('stats.site_pv') }} <span id="busuanzi_value_site_pv"></span>
+      </span>
+      <span id="busuanzi_container_site_uv" style="display:none">
+        · {{ __('stats.site_uv') }} <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
   </footer>
 
   <button id="back-to-top" title="Top" aria-label="Back to top">↑</button>
+  <span id="busuanzi_container_page_pv" style="display:none"></span>
   <script src="{{ url_for('js/main.js') }}"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

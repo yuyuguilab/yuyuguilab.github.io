@@ -34,3 +34,7 @@ nav:
   light: Light
   dark: Dark
   auto: Auto
+stats:
+  site_pv: Views
+  site_uv: Visitors
+  page_pv: Reads
