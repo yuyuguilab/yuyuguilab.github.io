@@ -1,0 +1,20 @@
+{# 文章底部推荐栏：基于标签重叠 + 同分类的相关文章 #}
+{% set related = related_posts(page, 3) %}
+{% if related and related.length %}
+<section class="related">
+  <h2 class="related-title">{{ __('related.title') }}</h2>
+  <p class="related-sub">{{ __('related.subtitle') }}</p>
+  <div class="related-grid">
+    {% for p in related %}
+      {% set rcats = p.categories.toArray() %}
+      <a class="related-card" href="{{ url_for(p.path) }}">
+        {% if rcats.length %}
+          <span class="related-cat">{{ cat_display(rcats[0].slug) }}</span>
+        {% endif %}
+        <span class="related-name">{{ p.title }}</span>
+        <span class="related-date">{{ date(p.date, 'YYYY-MM-DD') }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

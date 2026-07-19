@@ -13,6 +13,9 @@ post:
   back_cat: ← Back to topic
   back_home: ← Back to home
   toc: Contents
+related:
+  title: Keep Reading
+  subtitle: You might also like
 share:
   title: Share
   label: Share this article

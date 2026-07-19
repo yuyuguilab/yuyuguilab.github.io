@@ -13,6 +13,9 @@ post:
   back_cat: ← 返回分类
   back_home: ← 返回首页
   toc: 目录
+related:
+  title: 继续阅读
+  subtitle: 你可能感兴趣
 share:
   title: 分享
   label: 分享本文
