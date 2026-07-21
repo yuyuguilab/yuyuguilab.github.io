@@ -29,6 +29,7 @@ archive_dir: archives
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - "ai-training-pipeline.html"
 
 # Writing
 new_post_name: :title.md
