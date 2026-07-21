@@ -63,17 +63,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 
 /* 时间线动画（每日进步）*/
 .timeline{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px 24px}
-.tl-track{position:relative;height:90px;margin:20px 0 10px}
-.tl-bar{position:absolute;top:40px;left:0;right:0;height:6px;background:var(--line);border-radius:3px}
-.tl-progress{position:absolute;top:40px;left:0;height:6px;background:linear-gradient(90deg,var(--red),var(--amber),var(--green));border-radius:3px;width:0;transition:width 5s linear}
-.tl-dot{position:absolute;top:30px;left:0;width:26px;height:26px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 20px rgba(78,161,255,.6);transition:left 5s linear;z-index:3}
-.tl-mark{position:absolute;top:64px;transform:translateX(-50%);font-size:12px;color:var(--muted);text-align:center;white-space:nowrap}
-.tl-mark b{display:block;color:var(--text);font-size:13px}
-.controls{display:flex;gap:12px;justify-content:center;margin-top:16px}
+.tl-track{position:relative;height:150px;margin:24px 0 16px;padding:0 8px}
+.tl-bar{position:absolute;top:24px;left:8px;right:8px;height:6px;background:var(--line);border-radius:3px}
+.tl-progress{position:absolute;top:24px;left:8px;height:6px;background:linear-gradient(90deg,var(--red),var(--amber),var(--green));border-radius:3px;width:0;transition:width 5s linear}
+.tl-dot{position:absolute;top:14px;left:8px;width:26px;height:26px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 20px rgba(78,161,255,.6);transition:left 5s linear;z-index:3;transform:translateX(-50%)}
+.tl-mark{position:absolute;top:60px;transform:translateX(-50%);font-size:12px;color:var(--muted);text-align:center;width:22%;max-width:170px;line-height:1.4}
+.tl-mark b{display:block;color:var(--text);font-size:13px;margin-bottom:2px}
+.tl-mark.first{transform:translateX(0);text-align:left}
+.tl-mark.last{transform:translateX(-100%);text-align:right}
+.controls{display:flex;gap:12px;justify-content:center;margin-top:8px}
 .btn{padding:9px 22px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;font-weight:600;transition:transform .15s,background .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:transparent;color:var(--accent)}
-.tl-status{text-align:center;font-size:14px;color:var(--green);min-height:22px;font-weight:600}
+.tl-status{text-align:center;font-size:14px;color:var(--green);min-height:22px;font-weight:600;margin-top:14px}
 
 /* 对比卡片 */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
@@ -298,12 +300,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
         <div class="tl-bar"></div>
         <div class="tl-progress" id="tlProg"></div>
         <div class="tl-dot" id="tlDot"></div>
-        <div class="tl-mark" style="left:8%"><b>Day 0</b>发布<br>前端不达标</div>
-        <div class="tl-mark" style="left:32%"><b>Day 0–1</b>收集反馈<br>合成前端数据</div>
-        <div class="tl-mark" style="left:58%"><b>Day 1–2</b>蒸馏/微调<br>过评测门</div>
-        <div class="tl-mark" style="left:88%"><b>Day 2</b>灰度上线<br>忽然达标 ✓</div>
+        <div class="tl-mark first" style="left:6%"><b>Day 0</b>发布<br>前端不达标</div>
+        <div class="tl-mark" style="left:37%"><b>Day 0–1</b>收集反馈<br>合成前端数据</div>
+        <div class="tl-mark" style="left:63%"><b>Day 1–2</b>蒸馏/微调<br>过评测门</div>
+        <div class="tl-mark last" style="left:94%"><b>Day 2</b>灰度上线<br>忽然达标 ✓</div>
       </div>
-      <div class="tl-status" id="tlStatus">点击"播放"看完整过程</div>
+      <div class="tl-status" id="tlStatus">点击下方"播放"看完整过程</div>
       <div class="controls">
         <button class="btn" onclick="playTimeline()">▶ 播放动画</button>
         <button class="btn ghost" onclick="resetTimeline()">↺ 重置</button>
@@ -379,8 +381,8 @@ function playTimeline(){
   resetTimeline();
   st.textContent='Day 0：发布，前端不达标，飞轮启动…';
   setTimeout(function(){
-    prog.style.width='100%';
-    dot.style.left='calc(100% - 26px)';
+    prog.style.width='calc(100% - 16px)';
+    dot.style.left='calc(100% - 8px)';
   },100);
   var steps=[
     [1300,'Day 0–1：收集生产反馈+渲染验证合成前端数据…'],
@@ -394,7 +396,7 @@ function playTimeline(){
 function resetTimeline(){
   var prog=document.getElementById('tlProg'),dot=document.getElementById('tlDot');
   prog.style.transition='none';dot.style.transition='none';
-  prog.style.width='0';dot.style.left='0';
+  prog.style.width='0';dot.style.left='8px';
   void prog.offsetWidth;
   prog.style.transition='width 5s linear';dot.style.transition='left 5s linear';
   document.getElementById('tlStatus').textContent='点击"播放"看完整过程';
