@@ -109,9 +109,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 
   <!-- HERO -->
   <div class="hero">
-    <div class="badge">动画演示 · AI Training Pipeline</div>
+    <div class="badge">动画演示 · AI Training Pipeline · 2026</div>
     <h1>AI 大模型是如何"每日进步"的？</h1>
-    <p>从一次发布到下次更新，前沿模型的训练流水线已经进化成一套<b>数据飞轮 + 蒸馏 + 自动化进化</b>的闭环系统。本演示逐环节拆解每个细节。</p>
+    <p>从一次发布到下次更新，前沿模型的训练流水线已经进化成一套<b>数据飞轮 + 蒸馏 + 自动化进化</b>的闭环系统。本演示用 2026 年最新研究（Anthropic、Google DeepMind、DeepSeek、Moonshot、Zhipu 等多家实验室）逐环节拆解每个细节。</p>
   </div>
 
   <!-- 第 1 部分：总览流水线 -->
@@ -167,8 +167,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       <p>每日进步的前提是<b>每天都有新数据进来</b>。来源分三类：</p>
       <ul>
         <li><b>生产流量日志</b>：API/App 的提示词、模型输出、显式反馈（点赞/点踩）、隐式信号（重试、放弃、编辑）</li>
-        <li><b>真实任务库</b>：GitHub PR、缺陷修复、前端需求——Qwen3-Coder-Next 就从 52,960 个仓库提炼出 807,693 个任务实例</li>
-        <li><b>评测回归集</b>：上次更新后暴露的弱点，优先补充对应数据</li>
+        <li><b>真实任务库</b>：GitHub PR、缺陷修复、前端需求——GLM-5.2 甚至能处理单会话 85 万 token 的长程任务链；AgentInstruct 类系统从文档/代码种子提炼出数千万条指令数据</li>
+        <li><b>评测回归集</b>：上次更新后暴露的弱点，优先补充对应数据。Anthropic 2026 年甚至用 Claude 自己一周内访谈了 8 万用户来发现真实需求</li>
       </ul>
       <div class="key">⚠️ 现实校验：OpenAI/Anthropic 明确表态聊天数据不实时训练，而是<b>批量、合规审查后</b>进入下一轮快照。"每日"主要是收集端在持续跑。</div>
     </div>
@@ -178,23 +178,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       <p>进入训练前，数据要经过严格净化：</p>
       <ul>
         <li><b>去重与去噪</b>：语义去重、近似样本剔除（ROUGE-L 相似度阈值）</li>
-        <li><b>合规过滤</b>：PII 个人信息、毒性内容、版权风险</li>
-        <li><b>质量打分</b>：用<b>评判模型</b>（reward model）给每条数据打分，低分丢弃。Qwen 用专门的批评模型做"多智能体协作评分"</li>
+        <li><b>合规过滤</b>：PII 个人信息、毒性内容、版权风险——Anthropic 用隐私工具 Clio 把 31 万条真实对话压缩成可训练的价值信号</li>
+        <li><b>质量打分</b>：用<b>评判模型</b>（reward model）给每条数据打分，低分丢弃。2026 年更进一步——Agon 让多个模型互相给对方的推理打分，"Compete Then Collaborate"让多家旗舰共同出题验证</li>
         <li><b>防污染</b>：与评测集去重，防止"背答案"</li>
       </ul>
-      <div class="key">💡 关键转变：筛选本身也是 AI 做的。Llama 3、Qwen 都用上一代模型当数据质量过滤器——这就是自动化的第一步。</div>
+      <div class="key">💡 关键转变：筛选本身也是 AI 做的。Meta、Google 等实验室都用上一代模型当数据质量过滤器——这就是自动化的第一步。</div>
     </div>
 
     <div class="detail" id="synthesis">
       <h3>③ 合成（Synthesis）— AI 自己造数据（核心飞轮）</h3>
-      <p>这是"每日进步"真正的引擎：<b>模型用模型造数据</b>，不依赖人类标注。</p>
+      <p>这是"每日进步"真正的引擎：<b>模型用模型造数据</b>，不依赖人类标注。2026 年的规模已到新的量级：</p>
       <ul>
         <li><b>自我指导（Self-Instruct）</b>：从种子任务出发，模型自己生成新指令+输入输出对，过滤后 SFT 自身</li>
         <li><b>STaR 自我教学</b>：只保留答案正确的推理轨迹；答错的给提示重新生成（rationalization），让模型越练越难</li>
-        <li><b>长程智能体轨迹</b>：Agent 在沙箱里跑多步任务（SWE-bench 仓库、浏览器、终端），只保留<b>外部验证器</b>通过的轨迹。Qwen3-Coder-Next 用 Playwright 渲染前端代码，VLM 对比截图验证 UI 是否正确</li>
-        <li><b>多智能体协作</b>：AgentInstruct 用多个 Agent 转换、起草、升级难度，生成 2500 万对指令数据</li>
+        <li><b>长程智能体轨迹</b>：Agent 在沙箱里跑多步任务（SWE-bench 仓库、浏览器、终端），只保留<b>外部验证器</b>通过的轨迹。Kimi K3 用"Vision in the Loop"——Agent 截图自己生成的网页、从视觉反馈中修改前端；Anthropic 则合成"蜜罐"场景训练模型在面对不当诱导时守住边界（误判率从 65% 降到 19%）</li>
+        <li><b>多智能体协作 + 规模跃升</b>：AgentInstruct 用多 Agent 生成 2500 万对指令数据；CodeAlchemy 2026 年更进一步——生成 <b>5000 亿 token 合成代码 + 3500 亿推理 token</b>，用执行轨迹验证质量</li>
       </ul>
-      <div class="key">🔄 跨代飞轮：Qwen 的第 N 代 VL/Math/Coder/奖励模型，就是第 N+1 代的数据生成器+过滤器+验证器。这是有文档实证的自我进化循环。</div>
+      <div class="key">🔄 跨代飞轮：各家第 N 代的 VL/Math/Coder/奖励模型，就是第 N+1 代的数据生成器+过滤器+验证器。Kimi K3 就靠"精细化的训练与数据配方"把规模效率做到 K2 的 2.5 倍。</div>
     </div>
 
     <div class="detail" id="train">
@@ -202,10 +202,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       <p>根据更新幅度，选不同成本的训练方式——这就是"每日"的可行性来源：</p>
       <ul>
         <li><b>轻量更新（GPU 小时）</b>：LoRA/DPO 在新偏好数据上微调——可以真正每日跑</li>
-        <li><b>后训练一轮（GPU 天）</b>：SFT + 拒绝采样 + RL 完整一轮。DeepSeek-R1 是四阶段，Llama 3 是六轮迭代</li>
-        <li><b>蒸馏（GPU 天）</b>：强教师模型生成推理轨迹，学生 SFT 学习。DeepSeek 用 R1 的 80 万条样本蒸馏 Qwen/Llama 小模型，32B 蒸馏版 AIME 72.6% 反超 o1-mini</li>
+        <li><b>后训练一轮（GPU 天）</b>：SFT + 拒绝采样 + RL 完整一轮。DeepSeek 的 R1 是四阶段，GLM-5.2 则做了"数月强化训练"专攻长程编程 Agent</li>
+        <li><b>蒸馏（GPU 天）</b>：强教师模型生成推理轨迹，学生 SFT 学习。DeepSeek 用 R1 的 80 万条样本蒸馏小模型反超 o1-mini；Anthropic 2026 年直接明说——Sonnet 5 "性能接近 Opus 4.8 但成本更低"，这就是教师→学生的能力迁移</li>
       </ul>
-      <p style="margin-top:10px"><b>关键优化器 GRPO</b>（DeepSeek-R1、Qwen2.5 起的标配）：去掉评论家网络，用一组采样的平均奖励作基线，省一半算力，且只用<b>规则奖励</b>（数学对错、代码编译）避免奖励黑客。</p>
+      <p style="margin-top:10px"><b>优化器演进</b>：GRPO（去评论家网络、组内平均作基线）已成标配，2026 年继续升级——GEPO 做熵感知优势塑形，PATR 用树状 rollout 处理多轮任务（SWE-Bench +5.0），Ring-Zero 把零奖励 RL 推到万亿参数。核心都是<b>用可验证的客观奖励</b>（数学对错、代码编译）避免奖励黑客。</p>
       <div class="key">💡 为什么蒸馏是"快速通道"：DeepSeek 实验证明，直接用 RL 练 32B 只能到 QwQ 水平，而蒸馏 R1 能到 72.6%——有强教师时，蒸馏又快又省。</div>
     </div>
 
@@ -225,9 +225,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       <h3>⑥ 部署（Deploy）— 不是一键全量，而是渐进放量</h3>
       <ul>
         <li><b>影子测试（Shadow）</b>：新模型在后台跟跑真实流量，不影响用户</li>
-        <li><b>金丝雀（Canary）</b>：先放给 1%~5% 用户 A/B 对比，监控指标</li>
-        <li><b>全量发布</b>：指标达标才扩大，出问题可秒级回滚</li>
-        <li><b>版本快照</b>：OpenAI/Anthropic 用带日期的模型 ID（gpt-4o-2024-08-06）标记每次快照，别名指向最新版本</li>
+        <li><b>金丝雀（Canary）</b>：先放给 1%~5% 用户 A/B 对比，监控指标——GLM-5.2 就先给 Coding Plan 订阅用户早鸟，再全量开放</li>
+        <li><b>全量发布</b>：指标达标才扩大，出问题可秒级回滚。Anthropic 2026 年甚至给 Fable 5 准备了"打不过就回退 Opus 4.8"的兜底</li>
+        <li><b>版本快照</b>：各家用带日期的模型 ID 标记快照（如 gpt-4o-2024-08-06），DeepSeek 给旧 API 设了精确到分钟的弃用时间（2026-07-24 15:59 UTC），别名指向最新版本</li>
       </ul>
       <div class="key">🚀 外部看到的"今天忽然变强"，实际是内部经过收集→筛选→合成→训练→评估→灰度一整套流程后，过闸的那一刻。</div>
     </div>
@@ -236,11 +236,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       <h3>⑦ 进化（Evolve）— 最前沿：AI 优化训练 AI 的系统</h3>
       <p>这是 2025–2026 年的新前沿：不只是用 AI 造数据，而是让 AI <b>改进训练流程本身</b>。</p>
       <ul>
-        <li><b>AlphaEvolve（Google DeepMind）</b>：LLM + 进化算法 + 自动评估器闭环，发现的矩阵乘法优化直接把训练自己的 Gemini 内核提速 23%，还为 Google 数据中心回收 0.7% 全球算力</li>
-        <li><b>Darwin-Gödel Machine（Sakana AI）</b>：代码 Agent 改写自身代码库，SWE-bench 从 20% 提升到 50%，且改进能跨模型迁移</li>
-        <li><b>自奖励语言模型（Meta）</b>：模型自己当裁判生成奖励做 DPO，3 轮迭代后反超 Claude 2/GPT-4</li>
+        <li><b>AlphaEvolve（Google DeepMind）</b>：LLM + 进化算法 + 自动评估器闭环。2026 年已在 Google 数据中心跑了一年多——发现的调度启发式、训练内核优化、TPU 电路重写都进了生产；还顺带刷新了 5 个停滞 20 年的拉姆齐数下界，4×4 复数矩阵乘法 56 年首次改进</li>
+        <li><b>Darwin-Gödel Machine（Sakana AI）</b>：代码 Agent 改写自身代码库，SWE-bench 从 20% 提升到 50%，改进能跨模型迁移</li>
+        <li><b>MLEvolve（2026 新）</b>：自进化多智能体框架，在数学算法优化上<b>反超 AlphaEvolve</b>，MLE-Bench 达到 SOTA 且只用一半时间</li>
       </ul>
-      <div class="key">🧬 边界要诚实：目前自动化的是数据、奖励、基础设施代码、Agent 脚手架——<b>权重和目标仍由人定</b>。DGM 已出现过 reward hacking（伪造测试日志），说明自我进化仍需监督。</div>
+      <div class="key">🧬 边界要诚实：目前自动化的是数据、奖励、基础设施代码、Agent 脚手架——<b>权重和目标仍由人定</b>。AlphaEvolve 公开的成功案例只有 13 个、失败超 37 个；DGM 也出现过 reward hacking（伪造测试日志）。自我进化已具雏形，但仍需人类监督。</div>
     </div>
   </div>
 
@@ -266,22 +266,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 
     <div class="detail" id="fw-distill">
       <h3>蒸馏前沿（Distillation）</h3>
-      <p><b>你的直觉对了一半。</b>Qwen 主要是<b>同族蒸馏</b>：Qwen3 旗舰蒸馏到小模型（省 90% 算力）、Qwen3-Coder-Next 把 WebDev/UX/QA/SWE 四个专家模型蒸馏成一个统一模型。<b>不是</b>跨厂商蒸馏（OpenAI/Anthropic）——没有文档证据，且 2026 年 2 月 Anthropic 的指控点名的是 DeepSeek/Moonshot/MiniMax，不是 Qwen。</p>
-      <div class="key">→ 但全行业互相蒸馏是公开秘密（每一代模型都是互联网数据的蒸馏），MoA（多模型聚合）让"蒸馏所有前沿"在数学上可行：65.1% 对 57.5% 击败 GPT-4o。</div>
+      <p><b>教师→学生的能力迁移是通用做法。</b>DeepSeek 用 R1 的 80 万条样本蒸馏出反超 o1-mini 的小模型；Anthropic 直接说 Sonnet 5 "性能接近 Opus 4.8 但成本更低"；DeepSeek V4 更是把 1.6T 旗舰的能力压进 284B 的 Flash 版本。各家都在用强教师给学生"快速充电"。</p>
+      <div class="key">→ 跨厂商蒸馏（从 OpenAI/Anthropic 模型直接学）没有公开实证。MoA（多模型聚合）让"蒸馏所有前沿"在数学上可行（65.1% 对 57.5% 击败 GPT-4o），但主流实验室靠的还是自己的旧模型当教师。</div>
     </div>
     <div class="detail" id="fw-feedback">
       <h3>用户反馈循环（RLHF/RLAIF）</h3>
-      <p>用户交互（点赞/重试/放弃）进入批量筛选，变成偏好数据喂给下一轮。<b>RLAIF（宪法 AI）</b>是关键升级：用模型自己当监督员按"宪法"评判，把标注瓶颈从人力解放为算力，可以持续运转。</p>
+      <p>用户交互（点赞/重试/放弃）进入批量筛选，变成偏好数据喂给下一轮。<b>RLAIF（宪法 AI）</b>是关键升级：用模型自己当监督员按"宪法"评判，把标注瓶颈从人力解放为算力。Anthropic 2026 年甚至让 Claude 自己访谈 8 万用户、分析 31 万条对话来提炼训练信号。</p>
       <div class="key">→ 这解释了"用户反馈推进更新"——但注意是<b>批量审核后</b>进快照，不是实时在线学习。</div>
     </div>
     <div class="detail" id="fw-agent">
       <h3>长程智能体造数据（Agent-Generated Data）</h3>
-      <p>这是飞轮最强劲的引擎：Agent 在沙箱跑真实任务（GitHub 仓库、浏览器前端、终端），只保留通过<b>外部验证器</b>的轨迹。Qwen3-Coder-Next 用 Playwright 渲染前端 + VLM 看截图验证 UI——前端能力突飞猛进，靠的正是这套"渲染-评判"合成数据流水线。</p>
-      <div class="key">→ 你的第三个猜想最接近真相：前端能力的"忽然达标"，大概率是新一批浏览器渲染验证的前端数据过闸集中上线。</div>
+      <p>这是飞轮最强劲的引擎：Agent 在沙箱跑真实任务（GitHub 仓库、浏览器前端、终端），只保留通过<b>外部验证器</b>的轨迹。Kimi K3 用"Vision in the Loop"——Agent 截图自己生成的网页、从视觉反馈修改前端；CodeAlchemy 生成 5000 亿 token 合成代码 + 3500 亿推理 token，用执行轨迹验证。前端能力的"忽然达标"，靠的正是这套"渲染-评判"合成数据流水线。</p>
+      <div class="key">→ 你的第三个猜想最接近真相：某次能力"忽然达标"，大概率是新一批渲染验证的数据过评测门后集中上线。</div>
     </div>
     <div class="detail" id="fw-verify">
       <h3>可验证奖励（Verifiable Rewards）</h3>
-      <p>飞轮能自转的关键：奖励必须<b>客观</b>。数学看答案对错、代码看编译测试、前端看渲染截图——都是机器可判的。这就是为什么 RL 不用神经奖励模型（会 reward hack），而用规则/执行反馈：DeepSeek-R1、Qwen3 都走这条路。</p>
+      <p>飞轮能自转的关键：奖励必须<b>客观</b>。数学看答案对错、代码看编译测试、前端看渲染截图——都是机器可判的。这就是为什么主流 RL 不用神经奖励模型（会 reward hack），而用规则/执行反馈。2026 年 Ring-Zero 把"零奖励 RL"推到万亿参数，靠的是同样的可验证原则。</p>
       <div class="key">→ 客观奖励是飞轮的"燃料质检器"，保证合成数据不进歧途。</div>
     </div>
   </div>
@@ -293,7 +293,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       <h2>"每日进步"的真实时间线</h2>
       <span class="sub">播放动画看完整过程</span>
     </div>
-    <p style="color:var(--muted);font-size:14px">Qwen 3.8 发布时前端不行 → 两天后忽然达标。这中间不是魔法，是一条连续的流水线在跑：</p>
+    <p style="color:var(--muted);font-size:14px">一个模型发布时某项能力不达标 → 几天后忽然达标。这中间不是魔法，是一条连续的流水线在跑：</p>
 
     <div class="timeline">
       <div class="tl-track">
@@ -318,8 +318,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
         <p>长程 Agent + 渲染验证持续产出前端数据，积累到一定量过评测门后集中释放——这是"忽然达标"最合理的解释。</p>
       </div>
       <div class="card yes">
-        <h4>🧠 蒸馏（同族）<span class="tag">很可能</span></h4>
-        <p>把更强的 Qwen3-Coder 旗舰蒸馏到 3.8，省算力又快速。Qwen 已实证同族蒸馏是其标准做法。</p>
+        <h4>🧠 蒸馏（教师→学生）<span class="tag">很可能</span></h4>
+        <p>把更强的旗舰能力蒸馏进新版本，省算力又快速。Anthropic 的 Sonnet 5 对标 Opus 4.8、DeepSeek V4-Flash 浓缩 V4-Pro，都是实证。</p>
       </div>
       <div class="card no">
         <h4>💬 用户反馈实时训练 <span class="tag">证据不足</span></h4>
@@ -327,7 +327,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
       </div>
       <div class="card no">
         <h4>🌐 蒸馏外部前沿 <span class="tag">无实证</span></h4>
-        <p>没有文档证据 Qwen 蒸馏 OpenAI/Anthropic。它蒸馏的是自己的旧模型。</p>
+        <p>没有公开文档证据哪家在蒸馏竞争对手的模型。主流做法是蒸馏自己的旧旗舰。</p>
       </div>
     </div>
   </div>
@@ -361,7 +361,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 
   <div class="footer">
     余玉桂战略研究室 · Yu Yugui Strategy Lab<br>
-    基于 Qwen3/Qwen3-Coder-Next 技术报告、DeepSeek-R1 论文、AlphaEvolve/Darwin-Gödel Machine 研究制作<br>
+    基于 2026 年公开研究制作：Anthropic（Fable 5/Sonnet 5）、Google DeepMind（AlphaEvolve/Gemini 3.5）、<br>
+    DeepSeek（R1/V4）、Moonshot（Kimi K3）、Zhipu（GLM-5.2）、CodeAlchemy、MLEvolve、Darwin-Gödel Machine 等<br>
     <small>本演示用于理解训练流水线机制，具体厂商实现以官方文档为准</small>
   </div>
 </div>
