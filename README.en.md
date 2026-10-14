@@ -1,4 +1,4 @@
-# Yu Yugui Strategy Lab · 余玉桂战略研究室
+# YYG Strategy Lab · 余玉桂战略研究室
 
 English · **[简体中文](README.md)**
 
