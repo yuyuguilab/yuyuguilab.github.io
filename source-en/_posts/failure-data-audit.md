@@ -1,9 +1,9 @@
 ---
-title: 'AI Has No Error Notebook: We Audited 33 Model Recipes and Found an Unoccupied High Ground'
+title: 'AI Has No Error Notebook: An Audit of 33 Model Recipes Finds an Unoccupied High Ground'
 date: 2026-10-14 09:00:00
 categories: [技术]
 tags: [AI, Failure Data, Training Data, Generalization, Calibration, Learning from Mistakes]
-description: "Every student keeps an error notebook; AI training does the opposite — keep the correct answers, throw the all-wrong batches away. We audited 33 evidence units on a five-level scale: the top tier for failure data is vacant, 0/33. The cure for hallucination and unreliability sits on ground nobody occupies."
+description: "Every student keeps an error notebook; AI training does the opposite — keep the correct answers, throw the all-wrong batches away. This audit scores 33 evidence units on a five-level scale: the top tier for failure data is vacant, 0/33. The cure for hallucination and unreliability sits on ground nobody occupies."
 ---
 
 > **📄 This is the plain-language edition of our paper**
@@ -12,15 +12,15 @@ description: "Every student keeps an error notebook; AI training does the opposi
 
 Every student knows the drill: **grinding correct answers makes you better at what you already know; only mistakes show you what you don't.** That's why error notebooks exist — a mistake, once explained, sharpens you more than ten correct drills.
 
-Now turn that lens on how AI models are actually built. We did, end to end, and found something striking:
+Now turn that lens on how AI models are actually built. The picture that emerges is striking:
 
 **The AI training industry is precisely a "keep the correct, discard the wrong" industry.**
 
-## What we did
+## What the audit did
 
-We went through every training recipe and dataset we could find — open-source efforts like Llama, DeepSeek-R1, and Tulu, plus the technical reports of the five most aggressive flagship pipelines released in autumn 2026 (GPT-6 Astra, Claude Opus 5.5, GLM-5.3, Xiaomi MiMo-V2.6, DeepSeek-V4.1) — **33 evidence units** in total, and coded where every failure trace ends up.
+The audit went through every training recipe and dataset available — open-source efforts like Llama, DeepSeek-R1, and Tulu, plus the technical reports of the five most aggressive flagship pipelines released in autumn 2026 (GPT-6 Astra, Claude Opus 5.5, GLM-5.3, Xiaomi MiMo-V2.6, DeepSeek-V4.1) — **33 evidence units** in total, and coded where every failure trace ends up.
 
-We measured "how seriously a lab takes its failures" on a five-level ladder:
+The audit measured "how seriously a lab takes its failures" on a five-level ladder:
 
 | Level | Name | In plain terms |
 |-------|------|----------------|
@@ -32,7 +32,7 @@ We measured "how seriously a lab takes its failures" on a five-level ladder:
 
 ![The failure-data lifecycle: from L0 discarded to L4 first-class citizen](/images/failure-data-fig1.png)
 
-L4 is what we call the *error notebook*: not just "this was wrong," but which step failed, why, and what the correct approach looks like — exactly what a top student's notebook contains.
+L4 is what this post calls the *error notebook*: not just "this was wrong," but which step failed, why, and what the correct approach looks like — exactly what a top student's notebook contains.
 
 ## Finding one: the top tier is empty — across the board
 
@@ -48,7 +48,7 @@ The mainstream open recipes are more damning still:
 
 ## Finding two: autumn 2026 is when things started to move
 
-We then narrowed the window to after July 2026, when professor Jiang Yugang (Fudan University) told the World AI Conference that "failure data matters as much as success data" — and watched the five flagships that shipped afterwards. **Four of the five now run explicit failure-data components.** That is a generational shift:
+The window then narrows to after July 2026, when professor Jiang Yugang (Fudan University) told the World AI Conference that "failure data matters as much as success data" — and watched the five flagships that shipped afterwards. **Four of the five now run explicit failure-data components.** That is a generational shift:
 
 - **DeepSeek-V4.1 goes furthest**: its report states, in writing, that they collect "negative feedback and model failure cases submitted by internal employees at scale," build replay environments from them, and run "systematic replay of failures and targeted RL against observed weaknesses." That is the closest thing to an error notebook in industrial form — and notably in the *capability* domain, not just safety.
 - **Xiaomi MiMo-V2.6 has the cleanest shape**: it synthesizes training data from real reward-hacking failures, deliberately "keeping the original error recognizable and making the correction explicit" — keep the mistake, write the reflection, show the fix. All three moves present. The catch: it covers only reward hacking, at undisclosed scale.
