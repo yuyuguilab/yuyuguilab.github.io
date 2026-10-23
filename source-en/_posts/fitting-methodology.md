@@ -48,25 +48,9 @@ In **open domains** — value judgments, workflow insights, long-tail practices 
 
 So every domain needs a guaranteed floor for fresh human practice — the injection rate. And this floor has a quantitative anchor: it has been proven mathematically that closed-loop self-feeding can be kept from collapse by mixing in even one real data point per cycle; the mixing must be cumulative (the human foundation never shrinks) rather than substitutive; and the degradation is asymmetric — synthetic training strengthens skills already strong and weakens skills already weak — so the floor must be set per capability, not with one stroke.
 
-## 3. The audit: how to measure how far the industry stands from the methodology
+## 3. Results: engineering is disclosed in narrative form
 
-State the method clearly first; only then do the numbers mean anything.
-
-First, a deliberate narrowing: no one can see inside a lab, so the only auditable surface is public documentation. The audit asks one narrowed question — to what extent do the flagships' public disclosures instantiate the fourteen components? It measures what documents say, not what labs do; therefore "not disclosed" never means "not implemented" — every number below carries that caveat.
-
-The scale runs 0–3, with three boundary rules, each guarding against one way to inflate a score:
-
-- **Evaluation-only data caps at level 1.** Some system cards spend pages on production-hard cases and user-flagged failure conversations — used for evaluation, never training. However much is written, it doesn't put the component into the training pipeline.
-- **Mechanism descriptions without quantification cap at level 2.** "We have a channel for employee-submitted failure cases" is a mechanism; "how many per week, what survival rate" is an institution. Narrative is no substitute for numbers.
-- **Near-misses count 0.** Practices adjacent to a component but not meeting its definition — output-diversity talk that never touches the training-data distribution — don't count unless the document explicitly ties them to data practice.
-
-Every non-zero cell must carry a **verbatim quote plus locator**: you may disagree with my grading, but you can follow the locator to that flagship's own document and check. Confidence follows document type: technical reports high; official announcements and posts medium; secondhand retellings low — and low evidence may not support any level.
-
-One case on record. A ninth pipeline (Qwen3.8-Max) was once listed as pending verification: a secondhand account claimed its training blended "user feedback, community practice, and model self-experience." We read the original page and found two things — the phrase came from a ten-day agent-demo project log describing an engineering loop inside a demo, and the page contained no statement about training-data composition at all. The secondhand claim was withdrawn; the row never entered the matrix. **The audit's credibility comes precisely from its willingness to retract what it once credited.**
-
-## 4. Results: engineering is disclosed in narrative form
-
-Eight 2026 flagship pipelines × fourteen components = 112 cells, scoring **32** (mean level 0.286).
+With the methodology in place, the next step is to measure the distance: score the public disclosures of eight 2026 flagship pipelines against the fourteen components (0–3 per cell) — 112 cells, total **32** (mean 0.286).
 
 The three lines separate sharply: **production 0.393, governance 0.333, distribution 0.062.**
 
@@ -74,7 +58,7 @@ Four components appear zero times across all eight disclosures: typed type space
 
 The governance line's high scores come almost entirely from Anthropic alone — remove it, and the governance mean of the remaining seven falls to 0.190. **Governance instantiation is concentrated, not widespread.**
 
-Read together, these patterns yield one sentence: **the flagships do not lack engineering; what they lack is engineering disclosed in institutional form** — mechanisms without numbers (capped at 2 by rule), failure cases used only for evaluation and never entering training (capped at 1 by rule).
+Read together, these patterns yield one sentence: **the flagships do not lack engineering; what they lack is engineering disclosed in institutional form** — mechanisms without numbers, however much is written, remain narrative; failure cases used only for evaluation and never entering training, however thick the section, do not count.
 
 ![Readiness heatmap](/images/fitting-methodology-fig2.png)
 
@@ -82,7 +66,7 @@ Read together, these patterns yield one sentence: **the flagships do not lack en
 
 The honesty clause: this is a single-coder audit; a blind re-coding of a 20% sample is scheduled, and agreement rates and κ will be reported in the next version; with all five medium-confidence cells removed, the ordering of the three lines, the all-zero components, and the unique level-3 cell all stand unchanged. And the audit is never used to prove the protocol correct — the descriptive sections and the normative sections are separated by a wall drawn unmistakably.
 
-## 5. Four bridges: where each audience enters
+## 4. Four bridges: where each audience enters
 
 A methodology that cannot enter the language of the communities who would implement it remains a manuscript. Four bridges, each anchored in the audience's own vocabulary.
 
@@ -94,13 +78,13 @@ A methodology that cannot enter the language of the communities who would implem
 
 **For philosophy and public discussion** — entry point: "the living mirror." The critique of current models is that they freeze one moment of a culture — the answer is not a better polish but a moving surface: a system fitting practice reflects what people are actually doing, failures and learning included. "You're thingifying people into data" — typing by design includes failure and typicality, the opposite of an idealized portrait, and descriptions can be withdrawn; "a more convincing mirror is more dangerous" — credibility tracks the accuracy of the reflection: a mirror that admits its staleness and its coverage gaps is more correctable than one that implies completeness; "whose practice counts?" — that is exactly why aggregation must be written down as an explicit, revisable rule, which already goes further than a silent aggregation function with undisclosed rules.
 
-## 6. What would count as wrong
+## 5. What would count as wrong
 
 The methodology is stated so that evidence can kill its parts: if quota-style representation beats coverage-driven collection on joint-distribution metrics, the distribution line is rebuilt; if an open-domain pipeline on a purely synthetic stream shows no collapse and sustains training without a human foundation, the injection-rate design fails at the root; if flagship disclosures show all three lines already institutionalized, this readiness finding decays into a dated confirmation.
 
 One such falsification has already occurred: synthetic self-sufficiency in verifiable domains was once taken as a blow against "the necessity of human data" — this paper absorbs it as a design parameter (domain partition) rather than denying it. **The domain partition is itself the revised claim.**
 
-## 7. The distance is the work program
+## 6. The distance is the work program
 
 The protocol is written on paper; the disclosure record is laid on the table; the distance between the two is the work program. The distribution line stands at 0.062 — "whom to cover, what experience to cover" is a near-blank across the entire industry — and that number is both the blank and the starting point: whoever fills in this line first takes the first ticket to the next stage of training data.
 
