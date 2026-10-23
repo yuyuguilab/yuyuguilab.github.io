@@ -52,11 +52,17 @@ So every domain needs a guaranteed floor for fresh human practice — the inject
 
 State the method clearly first; only then do the numbers mean anything.
 
-The audit's construct is **disclosed instantiation**: it measures only "what the documents say," never "what the labs do" — "not disclosed" never means "not implemented". The scale runs from 0 to 3, with three boundary rules: failure data used only for evaluation counts at most 1 (no matter how much is said about it); a mechanism described without any quantitative numbers is capped at 2; a near-construct (one that only discusses output diversity, for instance) counts 0 unless explicitly connected to data practice.
+First, a deliberate narrowing: no one can see inside a lab, so the only auditable surface is public documentation. The audit asks one narrowed question — to what extent do the flagships' public disclosures instantiate the fourteen components? It measures what documents say, not what labs do; therefore "not disclosed" never means "not implemented" — every number below carries that caveat.
 
-Every non-zero cell must carry a **verbatim quote plus locator** — you may disagree with my grading, and you can go check my sources. Confidence follows document type: technical reports rate high, CEO posts medium, secondhand accounts low — and low-evidence sources may not support any level.
+The scale runs 0–3, with three boundary rules, each guarding against one way to inflate a score:
 
-The discipline has one case on record: a ninth pipeline was provisionally listed as pending verification on a secondhand account that "training blends user feedback with community practice" — we went and read the original page, and found the sentence came from the log of a ten-day demo project; the page carried no training-data statement at all. The secondhand claim was withdrawn, and that row never entered the matrix. **The audit's credibility comes precisely from its willingness to retract what it itself misread.**
+- **Evaluation-only data caps at level 1.** Some system cards spend pages on production-hard cases and user-flagged failure conversations — used for evaluation, never training. However much is written, it doesn't put the component into the training pipeline.
+- **Mechanism descriptions without quantification cap at level 2.** "We have a channel for employee-submitted failure cases" is a mechanism; "how many per week, what survival rate" is an institution. Narrative is no substitute for numbers.
+- **Near-misses count 0.** Practices adjacent to a component but not meeting its definition — output-diversity talk that never touches the training-data distribution — don't count unless the document explicitly ties them to data practice.
+
+Every non-zero cell must carry a **verbatim quote plus locator**: you may disagree with my grading, but you can follow the locator to that flagship's own document and check. Confidence follows document type: technical reports high; official announcements and posts medium; secondhand retellings low — and low evidence may not support any level.
+
+One case on record. A ninth pipeline (Qwen3.8-Max) was once listed as pending verification: a secondhand account claimed its training blended "user feedback, community practice, and model self-experience." We read the original page and found two things — the phrase came from a ten-day agent-demo project log describing an engineering loop inside a demo, and the page contained no statement about training-data composition at all. The secondhand claim was withdrawn; the row never entered the matrix. **The audit's credibility comes precisely from its willingness to retract what it once credited.**
 
 ## 4. Results: engineering is disclosed in narrative form
 
