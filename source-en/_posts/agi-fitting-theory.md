@@ -121,7 +121,7 @@ Hence the stance: **AGI should be built and governed as an augmentative tool —
 
 ## 6. Three Common Misreadings
 
-Since the theory went public, three questions keep coming back — one from reading the name too quickly, one from confusing the layers, one from mistaking a prediction for a risk. Better to settle them early.
+Three misreadings are the most likely to occur — one from reading the name too quickly, one from confusing the layers, one from mistaking a prediction for a risk. Better to settle them early.
 
 **Misreading 1: "Fitting humans" means "loading human minds or values into the model."** On hearing "human-referential fitting," the first instinct is often "fit the model with a human cognitive structure, human values and motivations." No. What the theory fits is the **flow of practice** — records of people doing things, failing, correcting, mastering — not the structure of minds and not the content of values. One sentence of disambiguation: it does not answer "which values to embed" (that is a governance question), nor "which architecture to use" (an architecture question); it answers only "what the training signal should be" (a data question). The precise sense of "human-referential" in the name is "taking humans as the reference frame": the coordinates of practice are defined by population, success/failure, expertise, and typicality — not "putting a human inside."
 
