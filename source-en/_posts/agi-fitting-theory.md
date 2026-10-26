@@ -70,7 +70,21 @@ Look at their verifiers: mathematical correctness, executable code — these are
 
 What remains is the thing they cannot supply. This line of work **displaces** the human signal without removing it: the judge is itself a distillate of human pretraining; the reward functions encode human preferences frozen at the moment of curation. What they cannot provide is a **fresh correction** — a judgment about a case that arose after the judge did, or a value that only became contested after the preferences were frozen. The corrective signal in the open domain cannot ground itself: it can be stretched, amortized, recombined, but its source remains the very practice it sits in judgment over, and its freshness decays with the practice it no longer sees.
 
-With the four objections met, the thesis stands. And that immediately raises a testable question: **does the industry know any of this?**
+With the four objections met, the thesis stands. Behind it sits a positive account of **the relation between intelligence and practice** — worth stating in three layers.
+
+**Definitionally, intelligence's "generality" is not a self-contained intrinsic endowment but a relational property.** A system counts as "general" only relative to the open set of human practice it is referenced against. Section 1 said that benchmarks are sampling projections of practice; this is the same point seen from the other side: even *measuring* intelligence cannot escape practice — a benchmark measures a model's performance relative to some slice of practice.
+
+**Developmentally, intelligence is acquired by fitting practice and kept current by practice's regeneration.** Practice flows daily; model snapshots update on cycle; the distance between the two is what the theory calls the **fitting lag**. That lag is not an engineering detail — it is the readout of this relation: how far the fitted intelligence has fallen behind the practice that defines it. The snapshot is always old, so the fitting is always *under way* — not a defect, but the structure of the relation itself.
+
+**Ontologically, practice precedes works.** Works are the projections practice leaves behind — the description/experience distinction earlier in this section was exactly this point. So changing the object of fitting is not a data-engineering preference; it fixes the content of the concept itself: what you fit determines what "general intelligence" means for a machine.
+
+Following these three layers, the two easiest misreadings should be nailed down.
+
+**First: "fitting humans" does not mean "loading human minds or values into the model."** What is fitted is the flow of practice — records of doing, failing, correcting, mastering — not the structure of minds and not the content of values. The precise sense of "human" in the name is "human-referential": the coordinates of practice are defined by population, success/failure, expertise, and typicality — not "putting a human inside." Three questions must be kept separate from this theory: which values to embed is a **governance-layer** question (the territory of human-centered AI design); which architecture to use, and whether to build in innate value drives, is an **architecture-layer** question (the "erect a heart for machines" line); what to predict in representation space is a **prediction-layer** question (the world-model line). This theory answers only the **data-layer** question — what the training signal should be. The layers are orthogonal and combinable; but no governance framework and no architecture program has ever specified that the training signal should come from the flow of practice — that layer is empty, and the empty slot is what this theory fills.
+
+**Second: it is not another "human-centered AI design" school.** Governance constrains from the outside in (the guardrail); the fitting theory generates from the inside out (the signal source). The theory carries its own value layer (the four boundaries, the means-and-end clause), but what it adds is the data layer. The two are complementary, and neither stands alone: a flow without guardrails gets abused; guardrails without a signal source just spin in place.
+
+And that immediately raises a testable question: **does the industry know any of this?**
 
 ## 3. The Evidence: An Axis That Was Never Named
 
@@ -96,13 +110,15 @@ One more piece of an earlier puzzle: we ran a dedicated audit of failure data, a
 
 **How could this claim turn out to be wrong?** The paper spells out its falsification conditions: if operationalizations of experience type start appearing frequently in neutral documents, the 0/80 fails; and if practice-stream data prove unable to yield production-grade quality, the evidentiary standing of that 2/80 fails as well. The weight of the zero comes precisely from the fact that it can be overturned.
 
+This gap has one symptom visible to the naked eye. Picture a system fed only "instant user satisfaction" signals: population shrunk to the user, outcome to success, no evaluators, no professional calibration — a single lit cell of the coverage space. What does it grow into? **Sycophancy.** Sycophancy is not a side effect of fitting practice; it is missing coverage made visible: feed the model one cell of data, and it grows into the shape of one cell. The antidote is precisely the missing cells — evaluator-population signals, professional-tier calibration, three-part failure records — all components of the companion methodology paper. When the industry finally rids itself of sycophancy, it will not be by ingesting more satisfaction signals, but by filling in cells.
+
 ## 4. Tensions and Boundaries: Where the Theory Stretches, and Where It Stops
 
 There are two tensions the theory acknowledges rather than hides.
 
 **Whose spectrum?** "The full spectrum" is first of all a question of "who." Whose values get aggregated, whose voices get weighted — the hard problems of social choice do not vanish just because the framework changed. The theory inherits these problems and hands them to governance.
 
-**The subjectivity boundary.** The fitting target includes functional emotional structure (the evidence indicates this layer is already being fitted), but the boundary is drawn at the functional level: **never grant personhood status; never fit states of feeling.** Interestingly, opposing camps converge here — one side argues for taking the moral status of models seriously, the other says AI may be made agreeable but must never be treated as a person — and this theory, for independent reasons of its own, stands on the same line: fit the mirror; do not build a subject.
+**The subjectivity boundary.** The fitting target includes functional emotional structure (the evidence indicates this layer is already being fitted), but the boundary is drawn at the functional level: **never grant personhood status; never fit states of feeling.** Interestingly, opposing camps converge here — one side argues for taking the moral status of models seriously, the other says AI may be made agreeable but must never be treated as a person — and this theory, for independent reasons of its own, stands on the same line: fit the mirror; do not build a subject. This also settles "empathy" at the boundary: the theory never requires the model to feel anything; what it asks for is functional cognitive empathy — reading unstated intentions, absorbing corrections, repairing misunderstandings — which is exactly what the coverage space can measure, cell by cell.
 
 Then come the four termination boundaries. They are the natural endpoints of the argument, not rhetorical decoration:
 
@@ -119,17 +135,7 @@ The final claim is normative, but it has an argument structure all the same.
 
 Hence the stance: **AGI should be built and governed as an augmentative tool — fitting humans is the means; augmenting humans is the end.** The mirror should be faithful, timely, and correctable; grant it no personhood, and do not pretend it feels.
 
-## 6. Three Common Misreadings
-
-Three misreadings are the most likely to occur — one from reading the name too quickly, one from confusing the layers, one from mistaking a prediction for a risk. Better to settle them early.
-
-**Misreading 1: "Fitting humans" means "loading human minds or values into the model."** On hearing "human-referential fitting," the first instinct is often "fit the model with a human cognitive structure, human values and motivations." No. What the theory fits is the **flow of practice** — records of people doing things, failing, correcting, mastering — not the structure of minds and not the content of values. One sentence of disambiguation: it does not answer "which values to embed" (that is a governance question), nor "which architecture to use" (an architecture question); it answers only "what the training signal should be" (a data question). The precise sense of "human-referential" in the name is "taking humans as the reference frame": the coordinates of practice are defined by population, success/failure, expertise, and typicality — not "putting a human inside."
-
-**Misreading 2: It is another "human-centered AI design" school.** Human-centered AI design is a family of governance claims — whom systems are built for, who holds control, by which values they are audited. The fitting theory does not sit on that layer, and it does not compete there: governance constrains **from the outside in** (the guardrail); the fitting theory generates **from the inside out** (the signal source). The theory carries its own value layer — the four termination boundaries and the stance clause "fitting is the means, augmentation is the end" — but what it actually adds is the data layer: no governance framework has ever specified that the training signal should come from the flow of practice. The two layers are complementary, and neither stands alone: a flow without guardrails gets abused; guardrails without a signal source just spin in place.
-
-**Misreading 3: "Fitting user feedback will breed a sycophantic model" is a threat to the theory.** It is the opposite — it is the theory's own prediction. Among the four dimensions of the coverage space, ingesting only "instant user satisfaction" signals lights up a single cell: population shrunk to the user, outcome to success, no evaluators, no professional calibration. Sycophancy is not a side effect of fitting practice; it is **the visible symptom of missing coverage** — feed the model one cell of data, and it grows into the shape of one cell. The antidote sits in the companion paper's protocol components: signals from evaluator populations, professional-tier calibration, three-part failure records. This is also why "empathy" poses no threat: the theory never requires the model to feel anything (the subjectivity boundary is drawn exactly there); what it asks for is functional cognitive empathy — reading unstated intentions, absorbing corrections, repairing misunderstandings — which is precisely what the coverage space can measure, cell by cell.
-
-## 7. After the Theory
+## 6. After the Theory
 
 The theory paper is published, with all coding data, the absence-search logs, and the falsification conditions. The engineering companion, *Fitting the Practice: A Data Methodology for Frontier Model Training*, is also online: it distills the theory into 14 protocol components and runs an item-by-item readiness audit of eight 2026 flagship models. The result in one line: production line 0.393, governance line 0.333, **distribution line 0.062** — on the question of "whom to cover, and which experiences," the whole industry is nearly blank.
 
