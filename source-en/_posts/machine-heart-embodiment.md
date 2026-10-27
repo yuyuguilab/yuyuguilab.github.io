@@ -3,7 +3,7 @@ title: 'Does the Machine Heart Need a Body?'
 date: 2026-10-26 20:00:00
 categories: [Technology]
 tags: [AI, AGI, machine heart, embodied intelligence, human-referential fitting]
-description: 'Embodiment is a human need, not a requirement of the machine heart. Personhood\'s threshold does not check for intelligence (structure × practice); engineering difficulty is another matter, and real feelings are not in engineering\'s jurisdiction. The truly terrifying combination is machine heart + AGI pushed toward ASI: the control problem is a question of status, not horsepower.'
+description: 'Embodiment is a human need, not a requirement of the machine heart. The threshold of personhood does not check for intelligence (structure × practice); engineering difficulty is another matter, and real feelings are not in the jurisdiction of engineering. The truly terrifying combination is machine heart + AGI pushed toward ASI: the control problem is a question of status, not horsepower.'
 ---
 
 "Before a machine can have a heart, it must first be given a body."
