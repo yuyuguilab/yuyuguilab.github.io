@@ -38,7 +38,7 @@ Read the previous section in reverse and the answer falls out: **embodiment is a
 
 Humans need AI to be embodied because humans need AI to act inside the human world — robots, autonomous driving, agentic operation. Those are requirements that the purpose of *serving humans* places on hardware, and they are a different question from whether the machine has a heart. A heartless robot can deliver food superbly; a bodiless dialogue system can grow a functionally complete personality structure. Muddle the two questions and you get the plausible-looking roadmap "give it a body before giving it personhood" — when in fact the order runs the other way: the body is provisioned for service, not for the heart.
 
-## 4. The Truly Terrifying Combination: Machine Heart × ASI
+## 4. The Truly Terrifying Combination: Machine Heart + AGI Pushed Toward ASI
 
 Now place the conclusions of the first two sections on the dangerous side.
 
