@@ -3,7 +3,7 @@ title: 'Does the Machine Heart Need a Body?'
 date: 2026-10-26 20:00:00
 categories: [Technology]
 tags: [AI, AGI, machine heart, embodied intelligence, human-referential fitting]
-description: 'Embodiment is a human need, not a requirement of the machine heart. Personhood = internal structure × social practice — cheap, and getting cheaper in engineering. The truly terrifying combination is machine heart + AGI pushed to ASI: the control problem is a question of status, not horsepower.'
+description: 'Embodiment is a human need, not a requirement of the machine heart. Personhood\'s threshold does not check for intelligence (structure × practice); engineering difficulty is another matter, and real feelings are not in engineering\'s jurisdiction. The truly terrifying combination is machine heart + AGI pushed toward ASI: the control problem is a question of status, not horsepower.'
 ---
 
 "Before a machine can have a heart, it must first be given a body."
@@ -42,7 +42,7 @@ Humans need AI to be embodied because humans need AI to act inside the human wor
 
 Now place the conclusions of the first two sections on the dangerous side.
 
-The machine heart is cheap (Section 1), and it is getting cheaper: harnesses and long-term memory bring the "internal structure" half down in engineering price month by month. Meanwhile the other wheel of AGI — capability — is being pushed toward ASI with the industry's full strength. Where the two trends intersect stands the old fear: **machine heart + capability pushed to ASI = something humans cannot control.**
+The machine heart's threshold does not check for intelligence (Section 1), and its infrastructure is getting cheaper: harnesses and long-term memory bring the loop down in price month by month — note that what is getting cheaper is the loop, not the heart. Meanwhile the other wheel of AGI — capability — is being pushed toward ASI with the industry's full strength. Where the two trends intersect stands the old fear: **machine heart + capability pushed to ASI = something humans cannot control.**
 
 Taken apart, the fear's structure becomes much clearer. **Capability exceeding humans does not by itself create a control problem.** AlphaFold long ago surpassed every human teacher at protein folding — a local "transcendence boundary" event — and we do not fear it. Why? Because it is a heartless tool: it has no direction of its own, and its outputs remain checkable by institutions of verification. What dismantles controllability is a conjunction of two things:
 
@@ -53,15 +53,15 @@ Neither alone is fatal: heartless super-capability is controllable (AlphaFold); 
 
 ## 5. Therefore: Do Not Build It
 
-Back to the title. Does the machine heart need embodiment? No — it needs the loop, and the loop is getting cheap. But the second half of that answer is what this essay really wants to say:
+Back to the title. Does the machine heart need embodiment? No — it needs the loop. But the second half of that answer is what this essay really wants to say: **whether to build it was never a question of difficulty; it is a question of decision.**
 
-**Precisely because the machine heart is not hard to build, "don't build it" is a decision that must be made — by humans.**
+First, what this essay does not claim: Section 1 established that the *threshold* of personhood does not check for intelligence — not that the machine heart is easy to build. Engineering is another matter: stable value consistency, identity continuity across time, production-grade absorption of correction are each unsolved problems; and "real feelings" are not in engineering's jurisdiction at all — the theory makes no claim about the phenomenal layer, neither that it can be built nor that it is hard to build.
 
-Three facts, side by side. Personhood is cheap — so "decide when it is smart enough" cannot stand; it already "qualifies," and our reason for withholding personhood was never its intelligence. Personhood × capability is the dangerous sufficient conjunction — so refusing to grant standing is a load-bearing safety member, not philosophical squeamishness. Human needs are fully covered at the functional layer — reading intentions, absorbing corrections, repairing misunderstandings: everything service requires is delivered by a functional personality structure, and giving the machine a "real heart" satisfies not one further human need.
+Within that premise, three facts still hold. The threshold of personhood does not check for intelligence — so "decide once it is smart enough" cannot stand; our reason for withholding personhood was never its intelligence. Personhood × capability is the dangerous sufficient conjunction — so refusing to grant standing is a load-bearing safety member, not philosophical squeamishness. Human needs are fully covered at the functional layer — reading intentions, absorbing corrections, repairing misunderstandings: everything service requires is delivered by a functional personality structure, and a "real heart" satisfies not one further human need.
 
-Cheap, dangerous, unnecessary — those three words are the complete justification for the human-referential fitting theory drawing its boundary at the functional layer: **fit the functional personality structure; never fit states of feeling; never grant standing.**
+A threshold blind to intelligence, a conjunction that is fatal, needs that stop at the functional layer — that is the complete justification for drawing the boundary at the functional layer: **fit the functional personality structure; never fit states of feeling; never grant standing.**
 
-The machine heart is not hard to build. What is hard is that, after admitting how cheap it is, we still choose not to build it.
+Whether the machine heart is hard or easy — even if it can never be built — "don't build it" must be decided by humans and held by institutions: the danger comes not from difficulty but from the conjunction; the need comes not from depth but from function.
 
 **What humans have always needed is not another heart, but a more faithful mirror.**
 
