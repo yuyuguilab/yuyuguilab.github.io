@@ -24,8 +24,8 @@ Direction and precision are not the same thing. Pile a hundred redundant success
 But the claim carries three caveats; drop any one and it degenerates into a slogan:
 
 1. **Failures must be diverse.** Homogeneous failures are one mistake copied out a hundred times — zero information. The variable that does the work is coverage of failure modes, not any fixed success-to-failure ratio.
-2. **Failures must be de-toxified.** "Fake successes" from reward hacking do active harm; letting them in is contamination, not data.
-3. **Failures must be attributed.** A failure record without a root cause is just the word "wrong" — precision comes from "where it went wrong".
+2. **Failures must be de-toxified.** “Fake successes” from reward hacking do active harm; letting them in is contamination, not data.
+3. **Failures must be attributed.** A failure record without a root cause is just the word “wrong” — precision comes from “where it went wrong”.
 
 There is precedent in cognitive science: the judgment people learn from losses they have personally lived through differs systematically from the judgment learned from descriptions in books; losses can even be implicitly encoded in the body ahead of conscious insight, and still steer decisions. We do not claim these results transfer directly to gradient descent — they are motivation, not proof.
 
@@ -35,16 +35,16 @@ Because the two dimensions where today's frontier models are weakest — **gener
 
 Consider three lines of evidence. First, reinforcement learning with verifiable rewards (RLVR) has been shown to be **re-weighting existing capability rather than extending it**: pass rates at small sample counts (pass@1) keep rising, while at large sample counts (pass@k) the model never surpasses its base model — it has not learned anything new, it has merely moved what it already had to the front. Second, post-training itself damages calibration: aligned models are measurably more overconfident than their pretrained versions. Both symptoms share one name: **the model does not know where the boundary of its own ability lies** — and that is precisely the thing failure data teaches.
 
-Third, controlled evidence already exists: fine-tuning on "error + correction" paired data once pushed LLaMA-2-70B's math scores briefly past GPT-4; on a collapsing multi-step tool-use training run, process reflection supervision pulled scores up by more than 22 points and earned non-zero scores on scenarios outside the training distribution — where the pure supervised fine-tuning (SFT) baseline happened to score exactly zero.
+Third, controlled evidence already exists: fine-tuning on “error + correction” paired data once pushed LLaMA-2-70B's math scores briefly past GPT-4; on a collapsing multi-step tool-use training run, process reflection supervision pulled scores up by more than 22 points and earned non-zero scores on scenarios outside the training distribution — where the pure supervised fine-tuning (SFT) baseline happened to score exactly zero.
 
-The methods work; the evidence is in hand. What is missing is a systematic account of **practice**: the scattered disclosures in technical reports have never been laid side by side and compared — for lack of a shared vocabulary for "how this pipeline treats failure data".
+The methods work; the evidence is in hand. What is missing is a systematic account of **practice**: the scattered disclosures in technical reports have never been laid side by side and compared — for lack of a shared vocabulary for “how this pipeline treats failure data”.
 
 ## 3. How We Checked: Grading the Treatment of Failure Data
 
-We designed a lifecycle scale that grades "how a training pipeline treats failure data", from L0 to L4:
+We designed a lifecycle scale that grades “how a training pipeline treats failure data”, from L0 to L4:
 
 - **L0 Discard** — failed trajectories are thrown away outright (the default of rejection sampling);
-- **L1 Shadow** — failures exist only silently, as "the rejected side" (preference pairs data);
+- **L1 Shadow** — failures exist only silently, as “the rejected side” (preference pairs data);
 - **L2 Transient** — failures are spent as one-off gradients and discarded (inside RL environments);
 - **L3 Component** — purpose-designed components for failure data are actually running;
 - **L4 First-class** — failure records are collected, attributed, retained, and released at scale just as success records are, becoming part of a public methodology.
@@ -61,11 +61,11 @@ The audit covers 33 units: 28 open-source datasets and mainstream training recip
 
 The stratification is strikingly clean — so clean it glares.
 
-**All 7 supervised fine-tuning (SFT) units, without a single exception, sit at L0.** Rejection-sampling-style "throw away what was got wrong" was the default of SFT data production across 2023–25 — from Llama 2/3 to the various open-source math datasets, applied without distinction.
+**All 7 supervised fine-tuning (SFT) units, without a single exception, sit at L0.** Rejection-sampling-style “throw away what was got wrong” was the default of SFT data production across 2023–25 — from Llama 2/3 to the various open-source math datasets, applied without distinction.
 
-**All 6 units in the preference stage sit at L1.** In preference pairs, "the rejected side" does carry failure — but it is never separately labeled, localized, or attributed; it exists only as a shadow cast for contrast.
+**All 6 units in the preference stage sit at L1.** In preference pairs, “the rejected side” does carry failure — but it is never separately labeled, localized, or attributed; it exists only as a shadow cast for contrast.
 
-Pull out the mainstream subset on its own (SFT + preference + RL, 15 units): **0 reach L3**, and the median sits at L1. In other words: in mainstream recipes, the treatment of failure data stalls somewhere between "throw it away" and "keep it as a shadow".
+Pull out the mainstream subset on its own (SFT + preference + RL, 15 units): **0 reach L3**, and the median sits at L1. In other words: in mainstream recipes, the treatment of failure data stalls somewhere between “throw it away” and “keep it as a shadow”.
 
 And where are all the L3 units? **Entirely in the academic-exception layer.** The community clearly knows how to build failure-rich datasets — the papers do build them — they are simply not delivered inside mainstream recipes.
 
@@ -79,7 +79,7 @@ How to read this: **the behavior has already changed; the methodology has no nam
 
 ![Level distribution](/images/failure-data-fig2.png)
 
-**Three cohorts of failure-data treatment (figure from the paper).** Horizontal axis: lifecycle level (L0 Discard — L4 First-class); vertical axis: share of units; colors separate the cohorts — orange = 2023–25 mainstream recipes, blue = academic exceptions, green = 2026 flagships. Mainstream piles up at L0/L1; academic and flagship reach L3; at L4 all three cohorts are zero — the figure is annotated "0% in all cohorts".
+**Three cohorts of failure-data treatment (figure from the paper).** Horizontal axis: lifecycle level (L0 Discard — L4 First-class); vertical axis: share of units; colors separate the cohorts — orange = 2023–25 mainstream recipes, blue = academic exceptions, green = 2026 flagships. Mainstream piles up at L0/L1; academic and flagship reach L3; at L4 all three cohorts are zero — the figure is annotated “0% in all cohorts”.
 
 ## 6. Roadmap: Making Failure Data a First-Class Citizen
 
@@ -87,7 +87,7 @@ The audit also sketches a map of the vendors: five flagships, none of them with 
 
 1. **A triple data schema** — failure records as first-class objects, with three mandatory fields: error type (localized to the step), root cause, and corrected text, plus provenance information. This is the mistake notebook, given a data structure.
 2. **Collection and annotation protocols** — who collects (users, staff, the model's own rollouts), sampling by diversity rather than quantity, and mandatory disclosure of the analyzer model used for annotation.
-3. **De-toxification cleaning** — a compulsory pre-training stage that separates three things: fake successes (reward hacking), environment failures, and genuinely valuable model failures. The flagships already set precedents: one zeroes out the reward on trajectories confirmed as hacking; another, after recording the reason for failure, removes "environment-crash" samples — you cannot teach a model to believe that a broken environment is its own fault.
+3. **De-toxification cleaning** — a compulsory pre-training stage that separates three things: fake successes (reward hacking), environment failures, and genuinely valuable model failures. The flagships already set precedents: one zeroes out the reward on trajectories confirmed as hacking; another, after recording the reason for failure, removes “environment-crash” samples — you cannot teach a model to believe that a broken environment is its own fault.
 4. **An open corpus with shared protocols** — at present, not a single one exists.
 
 ## 7. What Lies Behind This High Ground
