@@ -79,10 +79,6 @@ And it has a home. In the human-referential fitting theory of AGI, the three bou
 
 Two different goals; progress does not transfer. Next time the "is it conscious yet?" headline cycles through your feed, try the question that's actually worth money: **which ledger was that progress posted to?**
 
----
-
-This is the fourth public application of the human-referential fitting theory of AGI. The theory paper is [*Fitting the Practice, Not the Works*](https://doi.org/10.5281/zenodo.23391808); the companion discussion on embodiment is [Does the Machine Heart Need a Body?](https://yuyuguilab.github.io/zh/technology/machine-heart-embodiment/) (Chinese).
-
 ## Citation
 
 - **Source paper**: *Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence*, v1.0.0 · doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048) · [GitHub](https://github.com/yuyuguilab/machine-heart-two-goals)

@@ -79,10 +79,6 @@ description: '每次模型发布都有人问“它有意识了吗”——这个
 
 两个不同的目标；进步不可转账。下次再看到“它有意识了吗”的热搜，你可以先问一句更值钱的：**这笔进步，记在了哪本账上？**
 
----
-
-本文是 AGI 人本拟合论纲领的第四次公开应用。理论定义版见《[AGI 人本拟合论：拟合实践，而非作品](/zh/technology/agi-fitting-theory/)》；“机器之心需要具身吗”的姊妹讨论见《[机器之心需要具身吗](/zh/technology/machine-heart-embodiment/)》。
-
 ## 引用信息
 
 - **本文母文**：《两个不同的目标：机器之心与人工智能的概念解绑》v1.0.0 · doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048) · [GitHub](https://github.com/yuyuguilab/machine-heart-two-goals)
