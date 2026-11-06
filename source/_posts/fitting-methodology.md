@@ -1,5 +1,5 @@
 ---
-title: '拟合实践：前沿模型训练的数据方法论——附 2026 旗舰管线就绪度审计'
+title: '拟合实践：前沿模型训练的数据方法论'
 date: 2026-10-20 10:00:00
 categories: [技术]
 tags: [AI, 训练数据, 数据方法论, 就绪度审计, 实践流]
@@ -94,6 +94,6 @@ description: '十四个协议组件、四层数据栈、三条方法论线，再
 
 ## 引用信息
 
-- **本文依据**：《拟合实践：前沿模型训练的数据方法论——附 2026 旗舰管线就绪度审计》· [GitHub](https://github.com/yuyuguilab/practice-fitting-methodology)
+- **本文依据**：《拟合实践：前沿模型训练的数据方法论》· [GitHub](https://github.com/yuyuguilab/practice-fitting-methodology)
 - **理论**：《拟合实践，而非作品：AGI 人本拟合论》· [GitHub](https://github.com/yuyuguilab/practice-fitting-theory)
 - **失败数据审计**：《成功给方向，失败给精度》· [GitHub](https://github.com/yuyuguilab/failure-data-audit)
