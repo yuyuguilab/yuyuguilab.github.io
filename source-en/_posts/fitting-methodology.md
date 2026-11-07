@@ -64,7 +64,7 @@ Read together, these patterns yield one sentence: **the flagships do not lack en
 
 **Readiness heatmap (figure from the paper).** 8 flagship pipelines × 14 components, with color encoding the disclosed-instantiation level (0–3). The all-zero band running across C1/C2/C4/C10, and the single dark level-3 cell in the whole figure, are plain at a glance.
 
-The honesty clause: this is a single-coder audit; a blind re-coding of a 20% sample is scheduled, and agreement rates and κ will be reported in the next version; with all five medium-confidence cells removed, the ordering of the three lines, the all-zero components, and the unique level-3 cell all stand unchanged. And the audit is never used to prove the protocol correct — the descriptive sections and the normative sections are separated by a wall drawn unmistakably.
+The honesty clause: this is a single-coder audit; the blind re-coding of the 20% stratified sample (23 cells) was executed by a fresh blind coder — raw agreement 0.913, Cohen's κ = 0.716 (pre-registered threshold 0.70, met), full logs public; with all five medium-confidence cells removed, the ordering of the three lines, the all-zero components, and the unique level-3 cell all stand unchanged. And the audit is never used to prove the protocol correct — the descriptive sections and the normative sections are separated by a wall drawn unmistakably.
 
 ## 4. Four bridges: where each audience enters
 
@@ -94,6 +94,6 @@ The protocol is written on paper; the disclosure record is laid on the table; th
 
 ## References
 
-- **This paper draws on**: Fitting the Practice: A Data Methodology for Frontier Model Training, with a Readiness Audit of 2026 Flagship Pipelines · [GitHub](https://github.com/yuyuguilab/practice-fitting-methodology)
+- **This paper draws on**: Fitting the Practice: A Data Methodology for Frontier Model Training · [GitHub](https://github.com/yuyuguilab/practice-fitting-methodology)
 - **Theory**: Fitting the Practice, Not the Works: A Human-Referential Theory of AGI · [GitHub](https://github.com/yuyuguilab/practice-fitting-theory)
 - **Failure-data audit**: Success Provides Direction, Failure Provides Precision · [GitHub](https://github.com/yuyuguilab/failure-data-audit)
