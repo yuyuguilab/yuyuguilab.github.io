@@ -8,6 +8,7 @@ citation_title: 'World Models: Definition, Clarification, Distinction, and Bound
 citation_author: 'Yugui Yu'
 citation_publication_date: '2026/11/20'
 citation_doi: '10.5281/zenodo.24384106'
+og_image: '/images/world-models-social-preview.png'
 citation_pdf_url: 'https://github.com/yuyuguilab/world-models/raw/main/paper.pdf'
 ---
 
