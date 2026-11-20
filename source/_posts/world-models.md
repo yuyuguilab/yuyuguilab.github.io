@@ -18,7 +18,7 @@ citation_pdf_url: 'https://github.com/yuyuguilab/world-models/raw/main/paper_zh.
 
 ## 一、先给定义：世界模型是一种功能
 
-先把定义钉下来，后面的争吵才好看清。
+先把定义定下来，后面的争吵才好看清。
 
 **一个系统拥有世界模型，当且仅当它具备两件东西：**
 
