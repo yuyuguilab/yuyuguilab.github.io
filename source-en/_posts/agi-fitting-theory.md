@@ -4,6 +4,12 @@ date: 2026-10-20 09:00:00
 categories: [技术]
 tags: [AI, AGI, training data, human-referential fitting, data methodology]
 description: 'Every large model learns from humans — but from what humans have written, not from what humans do. The full argument: the object of fitting is practice, not works. The stock has a wall; the flow does not.'
+citation_title: 'Fitting the Practice, Not the Works: A Human-Referential Theory of AGI'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/10/20'
+citation_doi: '10.5281/zenodo.23391808'
+citation_pdf_url: 'https://github.com/yuyuguilab/practice-fitting-theory/raw/main/paper.pdf'
+og_image: '/images/agi-fitting-theory-social-preview.png'
 ---
 
 “AI is trained on human data.”

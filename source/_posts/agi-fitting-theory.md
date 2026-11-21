@@ -4,6 +4,12 @@ date: 2026-10-20 09:00:00
 categories: [技术]
 tags: [AI, AGI, 训练数据, 人本拟合论, 数据方法论]
 description: '所有大模型都在学人类，但学的是人类写过什么，不是人类在做什么。本文完整论证：拟合对象是实践而非作品，存量有墙，流量无墙。'
+citation_title: '拟合实践，而非作品：AGI 人本拟合论'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/10/20'
+citation_doi: '10.5281/zenodo.23391808'
+citation_pdf_url: 'https://github.com/yuyuguilab/practice-fitting-theory/raw/main/paper_zh.pdf'
+og_image: '/images/agi-fitting-theory-social-preview.png'
 ---
 
 “AI 是用人类数据训练出来的。”
