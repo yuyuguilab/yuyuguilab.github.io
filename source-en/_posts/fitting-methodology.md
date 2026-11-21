@@ -4,6 +4,12 @@ date: 2026-10-20 10:00:00
 categories: [技术]
 tags: [AI, training data, data methodology, readiness audit, practice flow]
 description: 'Fourteen protocol components, a four-layer data stack, three methodological lines — then an item-by-item scoring of eight 2026 flagships: production 0.393, governance 0.333, distribution 0.062. Who is covered, and what experience — an industry-wide blank.'
+citation_title: 'Fitting the Practice: A Data Methodology for Frontier Model Training'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/10/20'
+citation_doi: '10.5281/zenodo.23488465'
+citation_pdf_url: 'https://github.com/yuyuguilab/practice-fitting-methodology/raw/main/paper.pdf'
+og_image: '/images/fitting-methodology-social-preview.png'
 ---
 
 Two narratives about AI training data currently dominate.

@@ -4,6 +4,12 @@ date: 2026-10-20 10:00:00
 categories: [技术]
 tags: [AI, 训练数据, 数据方法论, 就绪度审计, 实践流]
 description: '十四个协议要素、四层数据栈、三条方法论线，再对 2026 八家旗舰逐项打分：生产线 0.393，治理线 0.333，分布线 0.062——覆盖谁、覆盖什么经验，全行业空白。'
+citation_title: '拟合实践：前沿模型训练的数据方法论'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/10/20'
+citation_doi: '10.5281/zenodo.23488465'
+citation_pdf_url: 'https://github.com/yuyuguilab/practice-fitting-methodology/raw/main/paper_zh.pdf'
+og_image: '/images/fitting-methodology-social-preview.png'
 ---
 
 关于 AI 训练数据，现在流行两种叙事。

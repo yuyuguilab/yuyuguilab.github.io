@@ -4,6 +4,12 @@ date: 2026-11-10 16:00:00
 categories: [技术]
 tags: [AI, intelligence definitions, AGI, concept analysis, translation protocol, human-referential fitting]
 description: "Intelligence, human intelligence, artificial intelligence, AGI — used together daily, yet they are four different types of concepts: a capacity, a sample, an artifact, a reference frame. The popular narrow-to-super ladder welds four types onto one line, and that is the structural reason a century of definition wars never ends. This post gives the level diagram, three illicit slides, and a translation protocol."
+citation_title: 'Four Concepts, Four Types: Levels, Boundaries, and a Translation Protocol for Intelligence, Human Intelligence, Artificial Intelligence, and AGI'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/11/10'
+citation_doi: '10.5281/zenodo.24096361'
+citation_pdf_url: 'https://github.com/yuyuguilab/four-concepts/raw/main/paper_en.pdf'
+og_image: '/images/four-concepts-social-preview.png'
 ---
 
 In 1923, the psychologist Edwin Boring wrote a sentence that has echoed for a century: “Intelligence is what the tests test.” A hundred years later, engineers observe intricate structure in the circuits and gradients of neural networks, and a new saying has become fashionable: “generalization lives in the weights.”

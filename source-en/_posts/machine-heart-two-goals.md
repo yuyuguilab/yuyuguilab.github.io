@@ -4,6 +4,12 @@ date: 2026-11-05 12:00:00
 categories: [技术]
 tags: [AI, machine consciousness, machine mind, anthropomorphism, human-referential fitting]
 description: "Every model release revives the same question — 'is it conscious yet?' The question rests on an error nobody audits: booking every jump in capability as progress toward a mind. Turing split the two goals in 1950; discourse has been transferring progress between them ever since. One illusion, four corrections."
+citation_title: 'Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/11/05'
+citation_doi: '10.5281/zenodo.23969047'
+citation_pdf_url: 'https://github.com/yuyuguilab/machine-heart-two-goals/raw/main/paper.pdf'
+og_image: '/images/machine-heart-two-goals-social-preview.png'
 ---
 
 Every model release, the same two headlines run side by side: **"It's scarily capable"** and **"Is it conscious yet?"**

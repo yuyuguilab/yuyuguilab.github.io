@@ -4,6 +4,12 @@ date: 2026-11-10 16:00:00
 categories: [技术]
 tags: [AI, 智能定义, 通用人工智能, 概念分析, 转译协议, 人本拟合论]
 description: '“智能、人类智能、人工智能、通用人工智能”天天连用，其实是四种不同类型的概念：能力、样本、造物、参照系。流行的“专用—通用—超级”三级阶梯把四类概念焊在一条线上，正是百年定义之争打不完的病根。本文给出层次图、三种非法滑动与一份跨层转译协议。'
+citation_title: '四个概念，四种类型：智能、人类智能、人工智能、通用人工智能的层次、边界与转译协议'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/11/10'
+citation_doi: '10.5281/zenodo.24096361'
+citation_pdf_url: 'https://github.com/yuyuguilab/four-concepts/raw/main/paper_zh.pdf'
+og_image: '/images/four-concepts-social-preview.png'
 ---
 
 1923 年，心理学家波林写下一句流传百年的名言：“智能就是测验所测的东西。”一百年后，工程师们在神经网络的电路和梯度里观察到了精巧的结构，于是一种新的说法流行开来：“泛化就在权重之中。”

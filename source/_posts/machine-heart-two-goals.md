@@ -4,6 +4,12 @@ date: 2026-11-05 12:00:00
 categories: [技术]
 tags: [AI, 机器之心, 意识, 人工智能, 人本拟合论]
 description: '每次模型发布都有人问“它有意识了吗”——这个问题本身记错了账。机器之心与人工智能是两个不同的目标，图灵 76 年前就亲手把它们分开，而话语一直在把能力进步偷偷记成“离有心更近”。一笔转账错觉，四个判断跟着错；本文拆账。'
+citation_title: '两个不同的目标：机器之心与人工智能的概念解绑'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/11/05'
+citation_doi: '10.5281/zenodo.23969047'
+citation_pdf_url: 'https://github.com/yuyuguilab/machine-heart-two-goals/raw/main/paper_zh.pdf'
+og_image: '/images/machine-heart-two-goals-social-preview.png'
 ---
 
 每一代模型发布，同一天必有两个热搜：**“它强得吓人”和“它有意识了吗”。**
