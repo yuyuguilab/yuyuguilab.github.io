@@ -17,6 +17,14 @@
   <meta property="og:url" content="{{ page.permalink }}">
   <meta property="og:image" content="{{ config.url }}{{ page.og_image or url_for('images/logo.jpg') }}">
   <meta name="twitter:card" content="summary_large_image">
+  {% else %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:title" content="{{ config.title }}">
+  <meta property="og:description" content="{{ config.description | escape }}">
+  <meta property="og:url" content="{{ config.url }}">
+  <meta property="og:image" content="{{ config.url }}{{ url_for('images/logo.jpg') }}">
+  <meta name="twitter:card" content="summary_large_image">
   {% endif %}
   <meta name="google-site-verification" content="SZOADQgVtUTX2HeFvqhWxl-mcLWI0BocFt2b-LUZgJg" />
   {# Highwire citation meta tags (Google Scholar landing page) — posts opt in via front-matter #}
