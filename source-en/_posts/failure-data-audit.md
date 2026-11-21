@@ -15,9 +15,9 @@ og_image: '/images/failure-data-audit-social-preview.png'
 
 Everyone who has been through school understands one thing: the mistake notebook (the notebook of corrected mistakes that students keep) beats a sea of drills. Getting a hundred problems right is worth less than fully understanding why one problem went wrong — once an error has been explained, the judgment it sharpens far outstrips anything repeated success can give.
 
-In July 2026, Jiang Yungang (vice president of Fudan University) said publicly at the World AI Conference (WAIC) that failure data matters to a model no less than success data, and that foundation-model corpus construction should work like a mistake notebook. It struck a chord across the room.
+In July 2026, Yugang Jiang (vice president of Fudan University) said publicly at the World AI Conference (WAIC) that failure data matters to a model's capability no less than success data.
 
-But resonance is one thing. What has the industry actually done? **Every reinforcement learning run produces failures, and every verifier flags failures — yet almost not a single one is kept as a training asset.**
+But words are one thing. What has the industry actually done? **Every reinforcement learning run produces failures, and every verifier flags failures — yet almost none of them are kept as training assets.**
 
 We ran a systematic audit that turns this question into verifiable numbers. First the claim, then how we checked, and finally what we found.
 
@@ -37,11 +37,11 @@ There is precedent in cognitive science: the judgment people learn from losses t
 
 ## 2. Why It Matters Now
 
-Because the two dimensions where today's frontier models are weakest — **generalization and calibration** — both point straight at training-data practice, and failure-driven learning is a candidate signal aimed at exactly those two dimensions.
+Because **generalization and calibration** are among the dimensions where today's frontier models are weakest, and both point straight at training-data practice — failure-driven learning is a candidate signal aimed at exactly those two.
 
-Consider three lines of evidence. First, reinforcement learning with verifiable rewards (RLVR) has been shown to be **re-weighting existing capability rather than extending it**: pass rates at small sample counts (pass@1) keep rising, while at large sample counts (pass@k) the model never surpasses its base model — it has not learned anything new, it has merely moved what it already had to the front. Second, post-training itself damages calibration: aligned models are measurably more overconfident than their pretrained versions. Both symptoms share one name: **the model does not know where the boundary of its own ability lies** — and that is precisely the thing failure data teaches.
+Consider three lines of evidence. First, reinforcement learning with verifiable rewards (RLVR) appears to be **re-weighting existing capability rather than extending it**: pass rates at small sample counts (pass@1) keep rising, while at large sample counts (pass@k) the model never surpasses its base model — it has not learned anything new; it has merely moved what it already had to the front. Second, post-training itself damages calibration: aligned models are measurably more overconfident than their pretrained versions. Both symptoms share one name: **the model does not know where the boundary of its own ability lies** — and that is precisely the thing failure data teaches.
 
-Third, controlled evidence already exists: fine-tuning on “error + correction” paired data once pushed LLaMA-2-70B's math scores briefly past GPT-4; on a collapsing multi-step tool-use training run, process reflection supervision pulled scores up by more than 22 points and earned non-zero scores on scenarios outside the training distribution — where the pure supervised fine-tuning (SFT) baseline happened to score exactly zero.
+Third, controlled evidence already exists: fine-tuning on “error + correction” paired data once pushed LLaMA-2-70B's math scores briefly past GPT-4; on a collapsing multi-step tool-use training run, process reflection supervision pulled scores up by more than 22 points and earned non-zero scores on scenarios outside the training distribution (unseen in both content and format) — where the pure supervised fine-tuning (SFT) baseline happened to score exactly zero.
 
 The methods work; the evidence is in hand. What is missing is a systematic account of **practice**: the scattered disclosures in technical reports have never been laid side by side and compared — for lack of a shared vocabulary for “how this pipeline treats failure data”.
 
@@ -61,13 +61,13 @@ On top of that sit six sub-dimensions (error localization, causal attribution, r
 
 **The failure-data lifecycle (figure from the paper).** Five treatments of failure data inside a training pipeline, from discard to first-class — this figure is the codebook's framework: L0 Discard, L1 Shadow, L2 Transient, L3 Component, L4 First-class.
 
-The audit covers 33 units: 28 open-source datasets and mainstream training recipes (2023–25), plus disclosures from 5 flagship pipelines in 2026 — 44 mechanism-level coding records in total.
+The audit covers 33 units: 28 open-source datasets and training recipes (the mainstream recipes among them from 2023–25), plus disclosures from 5 flagship pipelines in 2026 — 44 mechanism-level coding records in total.
 
 ## 4. Result One: Systematic Downgrading at the Dataset Layer
 
-The stratification is strikingly clean — so clean it glares.
+The stratification is strikingly clean — clean to the point of glaring.
 
-**All 7 supervised fine-tuning (SFT) units, without a single exception, sit at L0.** Rejection-sampling-style “throw away what was got wrong” was the default of SFT data production across 2023–25 — from Llama 2/3 to the various open-source math datasets, applied without distinction.
+**All 7 supervised fine-tuning (SFT) units, without a single exception, sit at L0.** Rejection-sampling-style “throw away whatever was answered incorrectly” was the default of SFT data production across 2023–25 — from Llama 2/3 to the various open-source math datasets, applied without distinction.
 
 **All 6 units in the preference stage sit at L1.** In preference pairs, “the rejected side” does carry failure — but it is never separately labeled, localized, or attributed; it exists only as a shadow cast for contrast.
 
@@ -89,7 +89,7 @@ How to read this: **the behavior has already changed; the methodology has no nam
 
 ## 6. Roadmap: Making Failure Data a First-Class Citizen
 
-The audit also sketches a map of the vendors: five flagships, none of them with the full set of components, and **the open-corpus link is vacant across the entire industry**. The missing infrastructure is concrete:
+The audit also sketches a map of the vendors: five flagships, none of them with the full set of components, and **the open-corpus component is vacant across the entire industry**. The missing infrastructure is concrete:
 
 1. **A triple data schema** — failure records as first-class objects, with three mandatory fields: error type (localized to the step), root cause, and corrected text, plus provenance information. This is the mistake notebook, given a data structure.
 2. **Collection and annotation protocols** — who collects (users, staff, the model's own rollouts), sampling by diversity rather than quantity, and mandatory disclosure of the analyzer model used for annotation.
@@ -98,7 +98,7 @@ The audit also sketches a map of the vendors: five flagships, none of them with 
 
 ## 7. What Lies Behind This High Ground
 
-Failure data is an unoccupied high ground — that is the audit's conclusion at the level of what is disclosed. And behind it sits a bigger picture: failure is not an isolated data type; it is **the most information-rich slice of the stream of practice**. How a doctor misdiagnoses and then corrects course, how a programmer writes it wrong and then repairs it — these mistakes live in no archive; they are part of living practice.
+Failure data is an unoccupied high ground — that is the audit's conclusion at the level of what is disclosed. And behind it sits a bigger picture: failure is not an isolated data type; it is **the most information-rich slice of the stream of practice**. How a doctor misdiagnoses and then corrects course, how a programmer gets it wrong and then repairs it — these mistakes live in no archive; they are part of living practice.
 
 That is the argument the companion paper, *Fitting the Practice, Not the Works: A Human-Referential Theory of AGI*, sets out to make: the thing to fit is not the works, but the practice. This audit is the empirical starting point of that chain of argument.
 
@@ -108,6 +108,6 @@ That is the argument the companion paper, *Fitting the Practice, Not the Works: 
 
 ## References
 
-- **This post is based on**: *Success Provides Direction, Failure Provides Precision: A Structured Audit of Failure Data in LLM Training* · [GitHub](https://github.com/yuyuguilab/failure-data-audit)
+- **This post is based on**: *Success Provides Direction, Failure Provides Precision: A Structured Audit of Failure Data in LLM Training* · [GitHub](https://github.com/yuyuguilab/failure-data-audit) · doi:[10.5281/zenodo.23355929](https://doi.org/10.5281/zenodo.23355929)
 - **Theory**: *Fitting the Practice, Not the Works: A Human-Referential Theory of AGI* · [GitHub](https://github.com/yuyuguilab/practice-fitting-theory)
-- **Methodology**: *Fitting the Practice: A Data Methodology for Frontier Model Training, with a Readiness Audit of 2026 Flagship Pipelines* · [GitHub](https://github.com/yuyuguilab/practice-fitting-methodology)
+- **Methodology**: *Fitting the Practice: A Data Methodology for Frontier Model Training* · [GitHub](https://github.com/yuyuguilab/practice-fitting-methodology)
