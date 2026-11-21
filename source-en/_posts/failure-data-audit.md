@@ -5,6 +5,12 @@ updated: 2026-10-20 09:00:00
 categories: [技术]
 tags: [AI, failure data, training data, mistake notebook, audit]
 description: 'A correct demonstration provides direction; an attributed failure provides precision. The claim, then an audit of 33 evidence units: mainstream recipes treat failure data somewhere between discarding and shadowing, the top level is vacant at 0/33 — while 2026 flagships are already quietly mining it.'
+citation_title: 'Success Provides Direction, Failure Provides Precision: A Structured Audit of Failure Data in LLM Training'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/10/14'
+citation_doi: '10.5281/zenodo.23355929'
+citation_pdf_url: 'https://github.com/yuyuguilab/failure-data-audit/raw/main/paper.pdf'
+og_image: '/images/failure-data-audit-social-preview.png'
 ---
 
 Everyone who has been through school understands one thing: the mistake notebook (the notebook of corrected mistakes that students keep) beats a sea of drills. Getting a hundred problems right is worth less than fully understanding why one problem went wrong — once an error has been explained, the judgment it sharpens far outstrips anything repeated success can give.

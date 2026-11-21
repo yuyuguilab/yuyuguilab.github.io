@@ -5,6 +5,12 @@ updated: 2026-10-20 09:00:00
 categories: [技术]
 tags: [AI, 失败数据, 训练数据, 错题本, 审计]
 description: '一次成功的演示给方向，一次被归因的失败给精度。本文论证这个主张，并审计 33 个证据单元：主流配方对失败数据的处理停在丢弃与影子之间，最高等级 0/33 空缺——而 2026 年旗舰已在悄悄开采。'
+citation_title: '成功给方向，失败给精度：大模型训练中失败数据的结构化审计'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/10/14'
+citation_doi: '10.5281/zenodo.23355929'
+citation_pdf_url: 'https://github.com/yuyuguilab/failure-data-audit/raw/main/paper_zh.pdf'
+og_image: '/images/failure-data-audit-social-preview.png'
 ---
 
 每个上过学的人都懂一个道理：错题本比题海有用。做对一百道题，不如把一道错题的错因彻底搞明白——因为错误一经讲解，它磨砺出的判断力远超重复的成功。
