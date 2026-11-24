@@ -4,6 +4,7 @@ date: 2026-07-01 10:00:00
 categories: [商业]
 tags: [Xiaomi, strategy, AI transformation, business model, Lei Jun]
 description: "Xiaomi's real problem may not be execution, but that the market has stopped buying the ecosystem story — a thought experiment on repositioning Xiaomi as an AI company."
+og_image: '/images/xiaomi-social-preview.png'
 ---
 
 ## Opening: What Might Xiaomi's Real Problem Be?

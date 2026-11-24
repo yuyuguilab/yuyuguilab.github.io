@@ -4,6 +4,7 @@ date: 2026-07-17 10:00:00
 categories: [技术]
 tags: [AGI, Claude, GPT, Kimi, Artificial Intelligence, LLM]
 description: "When AI gains the ability to proactively output rigorous, actionable decisions, the embryonic form of AGI has appeared. From Claude Fable 5 to GPT-5.6 to Kimi K3, three flagship models jointly piece together the complete picture of AGI's emergence."
+og_image: '/images/agi-social-preview.png'
 ---
 
 ## I. An Unusual Experience: AI Begins to “Make Decisions for You”

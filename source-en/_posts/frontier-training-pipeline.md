@@ -4,6 +4,7 @@ date: 2026-07-21 10:00:00
 categories: [技术]
 tags: [AI, large models, training pipeline, data flywheel, distillation, reinforcement learning, synthetic data]
 description: "The training pipeline was the last black box of the large-model industry; today it has been cracked into a set of open blueprints. Using 2026 research, this article takes apart the seven stages of the training pipeline and the four nodes of the data flywheel, one by one."
+og_image: '/images/frontier-training-pipeline-social-preview.png'
 ---
 
 ## Prologue: When the Last Black Box Is Cracked Open

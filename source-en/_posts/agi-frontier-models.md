@@ -4,6 +4,7 @@ date: 2026-07-20 10:00:00
 categories: [技术]
 tags: [AGI, Claude, Kimi, large models, agent, evaluation]
 description: "The July 2026 model evaluation season produced an anomalous split: Claude Fable 5, the strongest by benchmarks, felt less 'like AGI' in use than Kimi K3. The secret lies in the distinction between exam-taker intelligence and creator intelligence."
+og_image: '/images/agi-frontier-models-social-preview.png'
 ---
 
 ## Prologue: An Anomalous Lived Experience

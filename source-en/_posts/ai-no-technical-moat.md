@@ -4,6 +4,7 @@ date: 2026-07-19 10:00:00
 categories: [技术]
 tags: [AI, large models, moat, distillation, reinforcement learning, open source]
 description: "On algorithms, data, engineering, and diffusion, frontier large models no longer possess a single technical secret that others cannot learn, copy, or catch up to. The water in the moat was evaporated by technical progress itself."
+og_image: '/images/ai-no-technical-moat-social-preview.png'
 ---
 
 Let me draw the boundaries clear first, so we don't end up talking past each other.

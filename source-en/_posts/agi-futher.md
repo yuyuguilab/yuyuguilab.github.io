@@ -4,6 +4,7 @@ date: 2026-10-13 10:30:00
 categories: [技术]
 tags: [AI, AGI, Robotics, Prediction, RSI, Embodied AI, Demographics]
 description: "Two predictions in black and white, precise to the year: by 2036 most companies become AI-native and stop hiring; by 2046 robots fully surpass humans. Includes the complete five-step reasoning chain, three verification metrics, and concrete pictures of daily life in two decades."
+og_image: '/images/agi-futher-social-preview.png'
 ---
 
 

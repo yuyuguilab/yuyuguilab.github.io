@@ -4,6 +4,7 @@ date: 2026-10-26 21:30:00
 categories: [Technology]
 tags: [AI, world models, Genie, human-referential fitting, training data]
 description: 'After the Genie 4 demos flooded every feed, nobody answered the question that actually matters: is environment prediction intelligence, or 3D computation plus physical-law constraints? Three cuts with the human-referential fitting theory — physics is a free lunch; the test of intelligence begins where physics runs out.'
+og_image: '/images/world-model-question-social-preview.png'
 ---
 
 Genie 4 launched, and the feeds flooded. The praise sorts into three kinds: **it understands physics; world models are the road to AGI; the simulator is the intelligence.**

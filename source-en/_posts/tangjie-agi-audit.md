@@ -4,6 +4,7 @@ date: 2026-11-03 21:00:00
 categories: [技术]
 tags: [AI, AGI, Tang Jie, Zhipu AI, human-referential fitting]
 description: 'In four months, Tang Jie has articulated a complete AGI worldview: the sum of wisdom, exiting loops, autonomous entities. The engineering is real craft; the three sentences in the philosophy deserve hard scrutiny — this article dismantles them sentence by sentence with AGI human-referential fitting theory: wisdom is a verb, not a noun; what gets cheaper is annotation, not information; humility must land on structure.'
+og_image: '/images/tangjie-agi-audit-social-preview.png'
 ---
 
 On the evening of September 17, 2026, at the opening lecture of Tsinghua's Advanced Machine Learning, the 112-seat classroom was standing-room only. Tang Jie delivered the season's most widely circulated judgment: “Chat这一仗基本打完了” (“The chat battle is essentially over”) — “what 2026 should be doing is letting models remember on their own, evolve on their own, and complete long-horizon tasks on their own.” Six weeks later, on October 31 at the World Laureates Forum, he supplied the second line: “Large models have moved from conversational interaction into the era of agents.”

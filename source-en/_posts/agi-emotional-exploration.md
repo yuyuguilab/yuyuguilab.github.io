@@ -4,6 +4,7 @@ date: 2026-07-18 10:00:00
 categories: [哲学]
 tags: [AGI, emotion, consciousness, artificial intelligence, neuroscience, philosophy]
 description: "Emotion is not the opposite of reason but the meta-control system evolution equipped agents with. From appraisal theory and intrinsic motivation to neuromodulators, seven paradigms converge on one conclusion: functional emotion is an engineering necessity for AGI."
+og_image: '/images/agi-emotional-exploration-social-preview.png'
 ---
 
 ## I. First Tear Down the Wall in Your Mind: Split “Emotion” into Four Layers
