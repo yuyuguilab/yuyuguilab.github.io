@@ -2,7 +2,8 @@
 title: "Intelligence: Definition and Clarification"
 date: 2026-11-27 12:00:00
 categories: [技术]
-tags: [AI, intelligence definitions, human-referential fitting, concept analysis]
+tags: [AI, intelligence definitions, human-referential fitting, relational property, philosophy]
+og_image: '/images/intelligence-intrinsic-or-relational-social-preview.png'
 description: "The definitions of intelligence point at the environment: Xunzi made wisdom knowledge that corresponds with things, Wechsler required dealing effectively with one's environment, Legg and Hutter measured goal achievement across a wide range of environments. Read one by one, the definitions rarely describe intelligence as a self-sufficient property inside a system; the phrase lives in the weights is a later development. This post goes through those definitions, and explains how to understand the relation between model weights and intelligence."
 ---
 
