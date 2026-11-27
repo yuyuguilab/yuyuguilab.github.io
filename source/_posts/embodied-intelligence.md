@@ -2,6 +2,12 @@
 title: '具身智能说的是两件事，不是一个新类型'
 date: 2026-11-26 12:00:00
 categories: [技术]
+og_image: '/images/embodied-intelligence-social-preview.png'
+citation_title: '具身智能：定义、澄清、判据与边界'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/11/26'
+citation_doi: '10.5281/zenodo.24554632'
+citation_pdf_url: 'https://github.com/yuyuguilab/embodied-intelligence/raw/main/paper_zh.pdf'
 tags: [AI, AGI, 具身智能, 人本拟合论, 机器人, 定义]
 description: '“具身智能”在两年里从专业术语变成多国政策与产业共用的词，却一直没有稳定定义。本文的诊断是：这个词并指两件相互独立的事——闭环经过物理世界，以及在给定范围内能做事；定义之争的根源，是证明了一件事就被当作证明了两件。文章给出两条可判定的条件、四项可执行的检测，并用 2024 至 2026 年的公开文本检验：具身成立而能力不足、能力成立而具身不成立的系统，都被冠以了这个名字。'
 ---
@@ -124,4 +130,4 @@ IDC 称超过 85% 的部署集中在表演、教育、数据采集与导览场�
 
 定义的空缺也在被填补，只是方向不同：2026 年 4 月《自然·机器智能》的社论注意到多个学科正在汇聚到“系统如何在物理世界中智能地行动”；10 月出版的一部 physical AI 专著给出了单谓词的定义。逐篇排查题名含具身智能或物理人工智能的近年论文，尚未见到与本文同构的定义——两个独立谓词的合取，加一个声明过的环境类。
 
-论文全文（中英双语，含十条中文定义句与十五条英文定义句的完整语料、七条证伪条款与准入协议）：[GitHub](https://github.com/yuyuguilab/embodied-intelligence) ｜ [DOI 10.5281/zenodo.24554632](https://doi.org/10.5281/zenodo.24554632)
+论文全文：[GitHub](https://github.com/yuyuguilab/embodied-intelligence) ｜ [DOI 10.5281/zenodo.24554632](https://doi.org/10.5281/zenodo.24554632)

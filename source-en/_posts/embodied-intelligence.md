@@ -2,6 +2,12 @@
 title: 'Embodied intelligence says two things, not a new type'
 date: 2026-11-26 12:00:00
 categories: [技术]
+og_image: '/images/embodied-intelligence-social-preview.png'
+citation_title: 'Embodied Intelligence: Definition, Clarification, Criteria, and Boundaries'
+citation_author: 'Yugui Yu'
+citation_publication_date: '2026/11/26'
+citation_doi: '10.5281/zenodo.24554632'
+citation_pdf_url: 'https://github.com/yuyuguilab/embodied-intelligence/raw/main/paper.pdf'
 tags: [AI, AGI, embodied intelligence, human-referential fitting theory, robotics, definition]
 description: 'Within two years, "embodied intelligence" went from a technical term to a word shared by policy documents and industry across many countries — without ever acquiring a stable definition. This paper diagnoses the word as conjoining two independent things: a closed loop through the physical world, and the ability to get things done within a given range. The definitional disputes come from proving one thing and claiming both. The article gives two decidable conditions, four executable tests, and checks the public record of 2024–2026: systems that are embodied but lack the capacity, and systems that have the capacity but are not embodied, are all given the name.'
 ---
@@ -124,4 +130,4 @@ The definition also carries a **survival clause**: it binds the predicate, not t
 
 The definitional gap is being filled, in a different direction: in April 2026 an editorial in Nature Machine Intelligence noted several disciplines converging on how a system can act physically and intelligently in the world; in October, a twelve-chapter physical AI monograph gave a single-predicate definition. A paper-by-paper examination of recent titles containing embodied intelligence or physical AI has yet to find a definition isomorphic to this one — two independent predicates conjoined, plus a declared environment class.
 
-The full paper (bilingual, with the complete corpora of ten Chinese and fifteen English definition sentences, seven falsifiability clauses, and the admission protocol): [GitHub](https://github.com/yuyuguilab/embodied-intelligence) | [DOI 10.5281/zenodo.24554632](https://doi.org/10.5281/zenodo.24554632)
+The full paper : [GitHub](https://github.com/yuyuguilab/embodied-intelligence) | [DOI 10.5281/zenodo.24554632](https://doi.org/10.5281/zenodo.24554632)
